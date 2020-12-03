@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
+/* UNIVERSAL */
+
+body {
+  background-color: black;
+}
+
+.btn-dark {
+  opacity: 0.7;
+  margin-left: .2rem;
+  margin-right: .2rem;
+}
+
+
+.container-custom {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-single {
+  height: 100vh;
+  overflow-y: scroll;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* HOME */
+
+
+.map-menu {
+  position: relative;
+  top: 100px;
+  left: 100px;
+}
+
+
+.marker {
+  cursor: pointer !important;
+}
+
+
+
+
+/* NAVBAR */
+
+.navbar {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+}
+
+.nav-background {
+  background-color: green !important;
+}
+
+.fixed-top {
+  backface-visibility: hidden;
+  z-index: 999 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+  padding-top: .8rem;
+}
+
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover {
+  cursor: pointer;
+
+}
+
+
+/* LOGIN */
+
+
+form {
+  width: 260px;
+  text-align: center;
+  align-self: center;
+  z-index: 999!important;
+}
+
+form input {
+  color: white!important;
+  border-radius: 0 !important;
+  background-color: rgb(255, 255, 255, 0.2)!important;
+  border: 1px solid white;
+}
+
+form ::placeholder {
+  color: rgb(0, 0, 0, 0.5)!important;
+}
+
+
+/* LEAGUE PAGE */
+
+
+
+/* ACCOUNT PAGE */
+
+
+
+
+
+
+
+

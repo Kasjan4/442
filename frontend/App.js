@@ -1,26 +1,30 @@
 import React from 'react'
-import { BrowserRouter, Switch, Link, Route } from 'react-router-dom'
-import './styles/style.scss'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-// ! Some starter code for your frontends, change this
-// ! however you like.
+import 'bulma' 
+import './bootstrap/dist/css/bootstrap.min.css'
+import './styles/style.css'
+
+
+import Home from './components/Home'
+import Login from './components/Login'
+import Navbar from './components/Navbar'
+import Register from './components/Register'
+import League from './components/League'
+import Account from './components/Account'
+
+
 const App = () => (
   <BrowserRouter>
+    <Navbar />
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/hello/world" component={MyPage} />
-    </Switch>
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/league/:id" component={League} />
+      <Route exact path="/users/:id" component={Account} />
+    </Switch> 
   </BrowserRouter>
 )
-
-const Home = () => <Link to={'/hello/world'}>
-  Go to /hello/world page.
-</Link>
-
-const MyPage = () => {
-  return <p>
-    Hello World
-  </p>
-}
 
 export default App
