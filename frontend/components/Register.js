@@ -59,7 +59,7 @@ const Register = (props) => {
 
   console.log(formData)
 
-  return <div className="background-image-joinus">
+  return <div className="background">
     <Fade>
       <div className="container container-custom">
 

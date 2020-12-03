@@ -45,7 +45,7 @@ const Login = (props) => {
   // console.log(formData)
   console.log(errors)
 
-  return <div className="background-image-login">
+  return <div className="background">
 
     <Fade>
       <div className="container container-custom">

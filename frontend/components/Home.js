@@ -3,10 +3,12 @@ import axios from 'axios'
 import MapGL, { Marker, LinearInterpolator, FlyToInterpolator } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 
+
 const Home = () => {
 
   const [resorts, updateResorts] = useState([])
-  // const [resortLocations] = useState(mapData)
+  
+
   const [viewPort, setViewPort] = useState({
     height: '100vh',
     width: '100vw',
@@ -15,6 +17,8 @@ const Home = () => {
     longitude: 15.2551
 
   })
+
+
 
   useEffect(() => {
     axios.get('/api/resorts')
@@ -48,33 +52,25 @@ const Home = () => {
   }
   function goToEurope() {
     const WorldViewport = {
-      latitude: 46.2276,
-      longitude: 2.2137,
+      latitude: 49.02624375273902,
+      longitude: 10.449880969547975,
       zoom: 4,
       height: '100vh',
       width: '100vw'
     }
     setViewPort(WorldViewport)
   }
-  function goToAusNZ() {
-    const AusNZViewport = {
-      latitude: -31.850223,
-      longitude: 159.0134,
+
+
+  function goToAsia() {
+    const AsiaViewport = {
+      latitude: 32.74536366056577,
+      longitude: 108.43016171669143,
       zoom: 3,
       height: '100vh',
       width: '100vw'
     }
-    setViewPort(AusNZViewport)
-  }
-  function goToJapan() {
-    const JapanViewport = {
-      latitude: 36.332465,
-      longitude: 139.748212,
-      zoom: 4,
-      height: '100vh',
-      width: '100vw'
-    }
-    setViewPort(JapanViewport)
+    setViewPort(AsiaViewport)
   }
 
 
@@ -84,16 +80,16 @@ const Home = () => {
     <MapGL
 
       mapboxApiAccessToken={'pk.eyJ1Ijoic2Vhbi1mZW5lbG9uIiwiYSI6ImNraGMxbHBvOTAycWUycm1wczNpemZ0MGsifQ.phMK4dt1j_7wvlbYTbLWxg'}
+      mapStyle='mapbox://styles/kasjanhinc/cki93e734c41r19qu8nbtm8fa'
       {...viewPort}
       onViewportChange={(viewPort) => setViewPort(viewPort)}
     >
 
       <div className="map-menu">
         <button type="button" className="btn btn-dark" onClick={goToWorld}>WORLD</button>
-        <button type="button" className="btn btn-dark" onClick={goToNorthAmerica}>North America</button>
         <button type="button" className="btn btn-dark" onClick={goToEurope}>Europe</button>
-        <button type="button" className="btn btn-dark" onClick={goToAusNZ}>AUS/NZ</button>
-        <button type="button" className="btn btn-dark" onClick={goToJapan}>Japan</button>
+        <button type="button" className="btn btn-dark" onClick={goToNorthAmerica}>North America</button>
+        <button type="button" className="btn btn-dark" onClick={goToAsia}>Asia</button>
       </div>
 
 

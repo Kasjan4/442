@@ -9,7 +9,7 @@ const League = (props) => {
 
 
 
-  return <div>
+  return <div className="league">
     <h1>League page</h1>
   </div>
 
