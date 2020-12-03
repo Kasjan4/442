@@ -12,6 +12,8 @@ import Navbar from './components/Navbar'
 import Register from './components/Register'
 import League from './components/League'
 import Account from './components/Account'
+import Fixtures from './components/Fixtures'
+import Results from './components/Results'
 
 
 const App = () => (
@@ -23,6 +25,8 @@ const App = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/league/:id" component={League} />
       <Route exact path="/users/:id" component={Account} />
+      <Route exact path="/league/:id/fixtures" component={Fixtures} />
+      <Route exact path="/league/:id/results" component={Results} />
     </Switch> 
   </BrowserRouter>
 )

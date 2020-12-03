@@ -12,21 +12,17 @@ body {
   opacity: 0.9;
   margin-left: .2rem;
   margin-right: .2rem;
-  background-color: darkgreen!important;
-  border-radius: 0!important;
-  border: none!important;
+  background-color: darkgreen !important;
+  border-radius: 0 !important;
+  border: none !important;
   transition: ease .5s;
+
 }
 
 .btn-dark:hover {
   transition: ease .5s;
-  background-color: rgb(1, 80, 1)!important;
-}
+  background-color: rgb(1, 80, 1) !important;
 
-
-*:focus {
-  outline: none!important;
-  border:none!important;
 }
 
 
@@ -50,6 +46,13 @@ body {
 .background {
   background-color: black;
 }
+
+
+#error {
+  font-size: 10px;
+}
+
+
 
 /* HOME */
 
@@ -101,11 +104,11 @@ body {
 }
 
 .btn-outline-success {
-  background-color: rgb(1, 80, 1, 0.8)!important;
+  background-color: rgb(1, 80, 1, 0.8) !important;
 }
 
 .btn-outline-success:hover {
-  background-color: rgb(2, 116, 2)!important;
+  background-color: rgb(2, 116, 2) !important;
 }
 
 
@@ -118,14 +121,14 @@ form {
 }
 
 form input {
-  color: white!important;
+  color: white !important;
   border-radius: 0 !important;
-  background-color: rgb(255, 255, 255, 0.2)!important;
+  background-color: rgb(255, 255, 255, 0.2) !important;
   border: 1px solid white;
 }
 
 form ::placeholder {
-  color: rgb(255, 255, 255, 0.5)!important;
+  color: rgb(255, 255, 255, 0.5) !important;
 }
 
 
@@ -135,11 +138,3 @@ form ::placeholder {
 
 
 /* ACCOUNT PAGE */
-
-
-
-
-
-
-
-
