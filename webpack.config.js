@@ -5,8 +5,8 @@ const Dotenv = require('dotenv-webpack')
 const env = process.env.NODE_ENV === 'production' ? (
   new webpack.EnvironmentPlugin({ ...process.env })
 ) : (
-    new Dotenv()
-  )
+  new Dotenv()
+)
 
 module.exports = () => {
   return {

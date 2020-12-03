@@ -14,6 +14,7 @@ router = Blueprint(__name__, 'league')
 
 
 
+
 @router.route('/leagues', methods=['GET'])
 def index():
 
