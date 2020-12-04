@@ -97,9 +97,12 @@ const Home = () => {
       {leagues.map((league, index) => {
         return <Link to='/league/4331' key={index}>
           <Marker
+          
             latitude={50.77320442818988}
             longitude={10.0305464614366}
+            centerOffset={{ x: 10.5, y: 10 }}
           >
+            
             <img className="marker" src={league.strBadge} />
           </Marker>
         </Link>

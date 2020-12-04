@@ -26,7 +26,7 @@ body {
 }
 
 .container {
-  background-color:rgb(194, 250, 194);
+  background-color: rgb(194, 250, 194);
 }
 
 
@@ -71,7 +71,7 @@ body {
   background-color: black;
   padding-bottom: 7rem;
   width: 100vw;
-  
+
 }
 
 .background {
@@ -194,6 +194,13 @@ form ::placeholder {
   color: rgb(255, 255, 255, 0.5) !important;
 }
 
+form select {
+  color: white !important;
+  border-radius: 0 !important;
+  background-color: rgb(255, 255, 255, 0.2) !important;
+  border: 1px solid white;
+}
+
 
 /* LEAGUE PAGE */
 
@@ -204,7 +211,7 @@ form ::placeholder {
 }
 
 .card-website {
-  color: rgb(47, 47, 248)!important;
+  color: rgb(47, 47, 248) !important;
   margin-top: 1.5rem;
 }
 
@@ -218,8 +225,8 @@ form ::placeholder {
 }
 
 .league-img {
-  width: 25rem!important;
-  height: 10rem!important;
+  width: 25rem !important;
+  height: 10rem !important;
 }
 
 .resfixbtn {
@@ -255,7 +262,7 @@ form ::placeholder {
   width: 18rem;
   height: 20rem;
   margin: .7rem;
-  border: none!important;
+  border: none !important;
   opacity: 0.8;
 }
 
@@ -263,9 +270,9 @@ form ::placeholder {
   width: 55rem;
   /* height: 20rem; */
   margin: .7rem;
-  border: none!important;
+  border: none !important;
   opacity: 0.8;
-  
+
 }
 
 .card-img-top {
@@ -279,7 +286,7 @@ form ::placeholder {
 
 .card-body {
   overflow-y: scroll;
-  padding-top: .7rem!important;
+  padding-top: .7rem !important;
 }
 
 .card-text {
@@ -308,6 +315,7 @@ form ::placeholder {
 .card-text-venue {
   font-size: 1.2rem;
 }
+
 .card-round {
   font-size: 1rem;
   font-style: italic;
@@ -336,4 +344,23 @@ form ::placeholder {
   position: relative;
   top: 100px;
   left: 100px;
+}
+
+
+/* REGISTER */
+
+.regyourteam {
+  color: white;
+}
+
+.regteambadge {
+  position: absolute;
+  right: 10rem;
+  width: 200px;
+}
+
+.regleaguebadge {
+  position: absolute;
+  left: 10rem;
+  width: 200px;
 }
