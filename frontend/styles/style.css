@@ -99,6 +99,13 @@ body {
 
 .marker {
   cursor: pointer !important;
+  width: 50px;
+  transition: ease .5s;
+}
+
+.marker:hover {
+  width: 60px;
+
 }
 
 

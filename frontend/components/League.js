@@ -41,8 +41,6 @@ const League = (props) => {
             <a className="card-website">{league.strWebsite}</a>
 
 
-
-
           </div>
         </div>
 

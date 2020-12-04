@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
 
-  const [resorts, updateResorts] = useState([])
+
+  const [leagues, setLeague] = useState([])
   
 
   const [viewPort, setViewPort] = useState({
@@ -18,14 +19,15 @@ const Home = () => {
 
   })
 
+  useEffect(() => {
+    axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4331`)
+      .then(resp => {
+        const leagues = resp.data.leagues
+        console.log(leagues)
+        setLeague(leagues)
 
-
-  // useEffect(() => {
-  //   axios.get('/api/resorts')
-  //     .then(resp => {
-  //       updateResorts(resp.data)
-  //     })
-  // }, [])
+      })
+  }, [])
 
   function goToNorthAmerica() {
     const NorthAmericaViewport = {
@@ -93,13 +95,13 @@ const Home = () => {
       </div>
 
 
-      {resorts.map((resort, index) => {
-        return <Link to={`/resorts/${resort.name}`} key={index}>
+      {leagues.map((league, index) => {
+        return <Link to='/league/4331' key={index}>
           <Marker
-            latitude={resort.lat}
-            longitude={resort.lon}
+            latitude={50.77320442818988}
+            longitude={10.0305464614366}
           >
-            <img className="marker" src="https://img.icons8.com/material/24/000000/marker--v1.png" />
+            <img className="marker" src={league.strBadge} />
           </Marker>
         </Link>
       })}

@@ -53,6 +53,7 @@ const Navbar = (props) => {
 
   function closeSearch() {
     setSearchTerm('')
+    
   }
 
 
