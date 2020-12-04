@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFutbol } from '@fortawesome/free-solid-svg-icons'
+import Bounce from 'react-reveal/Bounce'
+import Fade from 'react-reveal/Fade'
 
 
 const Navbar = (props) => {
@@ -14,8 +16,7 @@ const Navbar = (props) => {
     var finalId = parsedToken.sub
   }
 
-  const football = <FontAwesomeIcon icon={faFutbol} size="2x" />
-
+  const football = <FontAwesomeIcon icon={faFutbol} size="3x" />
 
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -57,7 +58,7 @@ const Navbar = (props) => {
 
   return <nav className="navbar navbar-expand-md navbar-dark nav-background fixed-top">
 
-    <Link to="/" className="navbar-brand nav-brand">{football}</Link>
+    <Bounce top><div className="ball">{football}</div></Bounce>
 
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span className="navbar-toggler-icon"></span>
@@ -67,20 +68,19 @@ const Navbar = (props) => {
       <ul className="navbar-nav ml-auto">
 
 
-
-        <form className="form-inline my-2 my-lg-0 search-bar">
-          <input className="form-control mr-sm-2"
-            type="search"
-            placeholder="Enter league"
-            aria-label="Search"
-            value={searchTerm}
-            onChange={(event) => {
-              setSearchTerm(event.target.value)
-            }}
-          />
-
-
-        </form>
+        <Fade>
+          <form className="form-inline my-2 my-lg-0 search-bar">
+            <input className="form-control mr-sm-2"
+              type="search"
+              placeholder="Enter league"
+              aria-label="Search"
+              value={searchTerm}
+              onChange={(event) => {
+                setSearchTerm(event.target.value)
+              }}
+            />
+          </form>
+        </Fade>
 
         <div className="search-results">
           {leagues.filter((val) => {

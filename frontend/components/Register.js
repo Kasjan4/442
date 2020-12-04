@@ -61,7 +61,7 @@ const Register = (props) => {
 
   return <div className="background">
     <Fade>
-      <div className="container container-custom">
+      <div className="container-login-register">
 
         <form onSubmit={handleSubmit}>
 

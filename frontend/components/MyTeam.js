@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const Account = (props) => {
+const MyTeam = (props) => {
 
   const [formData, updateFormData] = useState({})
   const [accountData, updateAccountData] = useState({})
@@ -23,9 +23,7 @@ const Account = (props) => {
 
     <div className="container container-custom">
 
-      <h1>Account</h1>
-
-
+      <h1>Team name</h1>
 
     </div>
 
@@ -38,5 +36,5 @@ const Account = (props) => {
 
 }
 
-export default Account
+export default MyTeam
 
