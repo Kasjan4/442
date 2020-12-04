@@ -35,7 +35,6 @@ const Home = () => {
       latitude: 37,
       longitude: -102,
       zoom: 3,
-
       height: '100vh',
       width: '100vw'
     }
