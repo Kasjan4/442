@@ -20,12 +20,12 @@ const Home = () => {
 
 
 
-  useEffect(() => {
-    axios.get('/api/resorts')
-      .then(resp => {
-        updateResorts(resp.data)
-      })
-  }, [])
+  // useEffect(() => {
+  //   axios.get('/api/resorts')
+  //     .then(resp => {
+  //       updateResorts(resp.data)
+  //     })
+  // }, [])
 
   function goToNorthAmerica() {
     const NorthAmericaViewport = {

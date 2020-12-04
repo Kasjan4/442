@@ -41,10 +41,6 @@ const Login = (props) => {
   }
 
 
-
-  // console.log(formData)
-  console.log(errors)
-
   return <div className="background">
 
     <Fade>

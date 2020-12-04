@@ -45,7 +45,7 @@ const Register = (props) => {
 
     event.preventDefault()
 
-    axios.post('/api/joinus', formData)
+    axios.post('/api/register', formData)
       .then(resp => {
         console.log(resp.data)
         if (resp.data.errors) {
