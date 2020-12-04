@@ -64,7 +64,7 @@ body {
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   padding-left: 5px !important;
   padding-right: 5px !important;
   position: relative;
@@ -252,7 +252,29 @@ form select {
 }
 
 
-/* ACCOUNT PAGE */
+/* TEAM PAGE */
+
+.myteaminfo {
+  text-align: center;
+  padding-top: 5rem;
+  height: 10rem;
+
+  margin-bottom: 8rem;
+}
+
+.myteamimg {
+  margin-bottom: 2rem;
+  border-radius: 3rem;
+  opacity: 0.8;
+}
+
+
+.myteamheader {
+  color:rgb(224, 224, 224);
+  margin: 1rem;
+  text-align: left;
+}
+
 
 
 
