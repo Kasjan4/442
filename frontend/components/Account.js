@@ -19,9 +19,24 @@ const Account = (props) => {
       })
   }, [])
 
-  return 
+  return <div className="background">
 
-}  
- 
+    <div className="container container-custom">
+
+      <h1>Account</h1>
+
+
+
+    </div>
+
+
+
+
+
+
+  </div>
+
+}
+
 export default Account
 
