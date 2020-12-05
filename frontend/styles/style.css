@@ -15,7 +15,7 @@ body {
   margin-left: .2rem;
   margin-right: .2rem;
   background-color: darkgreen !important;
-  border-radius: 0 !important;
+  border-radius: .5rem !important;
   border: none !important;
   transition: ease .5s;
 }
@@ -170,6 +170,7 @@ body {
   padding: 0;
   text-align: center;
   overflow-y: scroll;
+  border-radius: 1rem;
 }
 
 
@@ -184,7 +185,7 @@ form {
 }
 
 form input {
-  border-radius: 0 !important;
+  border-radius: 1rem !important;
   background-color: rgb(255, 255, 255, 0.7) !important;
   border: 1px solid white;
 }
@@ -199,6 +200,17 @@ form select {
   border: 1px solid white;
 }
 
+.loginques {
+  color: white;
+  background-color: rgb(0, 128, 0, 0.8);
+  padding: 0 1rem 0 1rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+}
+
+.loginques:hover {
+  color: white;
+}
 
 /* LEAGUE PAGE */
 
@@ -377,6 +389,7 @@ form select {
 .regyourteam {
   color: white;
   background-color: rgb(0, 128, 0, 0.8);
+  border-radius: 1rem;
 }
 
 .regteambadge {

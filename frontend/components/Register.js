@@ -130,7 +130,7 @@ const Register = (props) => {
 
   return <div className="background">
     <Fade>
-      <div className="container-login-register">
+      <div className="container-login-register ">
 
         <Slide right appear spy={formData.team} duration={500}>
           <img className="regteambadge" src={teamImage}></img>
@@ -203,6 +203,7 @@ const Register = (props) => {
           </div>
 
           <p className="regyourteam">YOUR TEAM</p>
+
           <div className="form-group">
             <select
               className="form-control"

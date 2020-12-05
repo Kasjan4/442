@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Fade from 'react-reveal/Fade'
+import { Link } from 'react-router-dom'
 
 
 const Login = (props) => {
@@ -83,6 +84,8 @@ const Login = (props) => {
           <button className="btn btn-dark">Login</button>
 
         </form>
+
+        <Link to="/register" className="loginques">Dont have an account? Register here</Link>
 
       </div>
     </Fade>
