@@ -14,6 +14,7 @@ class User(db.Model, BaseModel):
   username = db.Column(db.String(15), nullable=False, unique=True)
   email = db.Column(db.String(128), nullable=False, unique=True)
   password_hash = db.Column(db.String(128), nullable=True)
+  favourite_team_id = db.Column(db.Integer(), db.ForeignKey('teams.id'), nullable=True)
 
   @hybrid_property
   def password(self):
