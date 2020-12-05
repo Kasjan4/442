@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import 'bulma' 
 import './bootstrap/dist/css/bootstrap.min.css'
 import './styles/style.css'
 

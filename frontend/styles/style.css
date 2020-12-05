@@ -47,7 +47,6 @@ body {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  background-color: black;
   width: 100vw;
 }
 
@@ -68,15 +67,16 @@ body {
   padding-left: 5px !important;
   padding-right: 5px !important;
   position: relative;
-  background-color: black;
+  background: black;
   padding-bottom: 7rem;
   width: 100vw;
 
 }
 
 .background {
-  background-color: black;
+  background-image: url(https://i.imgur.com/N86uPRO.jpg);
   height: 100%;
+  background-size: cover;
 }
 
 #error {
@@ -184,20 +184,18 @@ form {
 }
 
 form input {
-  color: white !important;
   border-radius: 0 !important;
-  background-color: rgb(255, 255, 255, 0.2) !important;
+  background-color: rgb(255, 255, 255, 0.7) !important;
   border: 1px solid white;
 }
 
 form ::placeholder {
-  color: rgb(255, 255, 255, 0.5) !important;
+  /* color: rgb(255, 255, 255, 0.5) !important; */
 }
 
 form select {
-  color: white !important;
   border-radius: 0 !important;
-  background-color: rgb(255, 255, 255, 0.2) !important;
+  background-color: rgb(255, 255, 255, 0.7) !important;
   border: 1px solid white;
 }
 
@@ -290,7 +288,6 @@ form select {
 
 .card-league {
   width: 55rem;
-  /* height: 20rem; */
   margin: .7rem;
   border: none !important;
   opacity: 0.8;
@@ -359,6 +356,12 @@ form select {
   margin-bottom: .5rem;
 }
 
+.resfixheader {
+  text-align: center;
+  padding-top: 5rem;
+  height: 10rem;
+
+}
 
 /* HOME PAGE */
 
@@ -373,6 +376,7 @@ form select {
 
 .regyourteam {
   color: white;
+  background-color: rgb(0, 128, 0, 0.8);
 }
 
 .regteambadge {
@@ -386,3 +390,17 @@ form select {
   left: 10rem;
   width: 200px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

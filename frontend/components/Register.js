@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Fade from 'react-reveal/Fade'
+import Slide from 'react-reveal/Slide'
 
 
 
@@ -131,8 +132,13 @@ const Register = (props) => {
     <Fade>
       <div className="container-login-register">
 
-        <img className="regteambadge" src={teamImage}></img>
-        <img className="regleaguebadge" src={leagueImage}></img>
+        <Slide right appear spy={formData.team} duration={500}>
+          <img className="regteambadge" src={teamImage}></img>
+        </Slide>
+
+        <Slide left appear spy={formData.league} duration={500}>
+          <img className="regleaguebadge" src={leagueImage}></img>
+        </Slide>
 
         <form onSubmit={handleSubmit}>
 

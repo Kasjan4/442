@@ -6,6 +6,9 @@ import { getUserId, isCreator } from '../lib/auth'
 
 
 
+
+
+
 const League = (props) => {
 
   const id = props.match.params.id
@@ -22,7 +25,10 @@ const League = (props) => {
       })
   }, [])
 
+
+
   return <div className="container-custom">
+
 
 
     <div className="league-section">
@@ -38,7 +44,7 @@ const League = (props) => {
           <div className="card-body">
             <h1 className="year"><strong>Founded: {league.intFormedYear}</strong></h1>
             <h5 className="card-desc">{league.strDescriptionEN}</h5>
-            <a className="card-website">{league.strWebsite}</a>
+            <a href={`https://${league.strWebsite}`} target="_blank" className="card-website">LEAGUE WEBSITE</a>
 
 
           </div>
