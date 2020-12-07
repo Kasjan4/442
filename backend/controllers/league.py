@@ -23,6 +23,8 @@ def index():
   return league_schema.jsonify(leagues, many=True), 200
 
 
+
+
 # @router.route('/hotels/notes', methods=['GET'])
 # def get_notes():
 

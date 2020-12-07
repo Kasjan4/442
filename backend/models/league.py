@@ -18,7 +18,7 @@ class League(db.Model, BaseModel):
   badge = db.Column(db.String(200), nullable=True)
   lon = db.Column(db.Integer(), nullable=False)
   lat = db.Column(db.Integer(), nullable=False)
-  # teams = db.relationship('Team', backref='league')
+  teams = db.relationship('Team', backref='league')
 
 
   # notes = db.relationship('Note', secondary=hotels_notes_join, backref='hotels')
