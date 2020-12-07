@@ -34,6 +34,7 @@ with app.app_context():
         description=league_details['strDescriptionEN'],
         website=league_details['strWebsite'],
         image=league_details['strLogo'],
+        badge=league_details['strBadge'],
         lon= (float(country_latlng['northeast']['lng']) + float(country_latlng['southwest']['lng']))/2,
         lat= (float(country_latlng['northeast']['lat']) + float(country_latlng['southwest']['lat']))/2
         )
