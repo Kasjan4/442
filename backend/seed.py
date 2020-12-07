@@ -23,7 +23,8 @@ with app.app_context():
       if league['strSport'] == 'Soccer':
         league_details = requests.get(f'https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id={league["idLeague"]}').json()
         league_details = league_details ['leagues'][0]
-        country_latlng = requests.get(f'https://api.opencagedata.com/geocode/v1/json?key=f6caef04acfb4220a1785e5ac233d11d&q={league_details["strCountry"]}&pretty=1&no_annotations=1').json()
+
+        country_latlng = requests.get(f'https://api.opencagedata.com/geocode/v1/json?q={league_details["strCountry"]}&key=ab82c77042d74ae6aae0bb67ff494887').json()
         country_latlng = country_latlng['results'][0]['bounds']
 
         league_object = League(

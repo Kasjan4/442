@@ -80,7 +80,7 @@ const Login = (props) => {
 
         </form>
 
-        <Link to="/register" className="loginques">Dont have an account? Register here</Link>
+        <Link to="/register" className="loginques">Don&prime;t have an account? Register here</Link>
 
       </div>
     </Fade>
