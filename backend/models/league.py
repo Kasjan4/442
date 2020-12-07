@@ -15,6 +15,7 @@ class League(db.Model, BaseModel):
   description = db.Column(db.String(10000), nullable=True)
   website = db.Column(db.String(200), nullable=True)
   image = db.Column(db.String(200), nullable=True)
+  badge = db.Column(db.String(200), nullable=True)
   lon = db.Column(db.Integer(), nullable=False)
   lat = db.Column(db.Integer(), nullable=False)
   teams = db.relationship('Team', backref='league')
