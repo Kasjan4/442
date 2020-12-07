@@ -5,11 +5,11 @@
 /* UNIVERSAL */
 
 #root {
-background-color: black!important;
+  background-color: black !important;
 }
 
 body {
-  background-color: black!important;
+  background-color: black !important;
   margin: 0;
   padding: 0;
 }
@@ -70,7 +70,7 @@ body {
   flex-direction: column;
   padding-left: 5px !important;
   padding-right: 5px !important;
-  position: relative;
+  /* position: relative; */
   background: black;
   padding-bottom: 7rem;
   width: 100vw;
@@ -151,6 +151,8 @@ body {
 }
 
 
+
+
 .search-results a {
   color: white;
   font-size: .7rem;
@@ -176,6 +178,8 @@ body {
   overflow-y: scroll;
   border-radius: 1rem;
   max-height: 50vh;
+  min-width: 12rem;
+  max-width: 17rem;
 }
 
 
@@ -269,25 +273,46 @@ form select {
 
 /* TEAM PAGE */
 
+.username {
+  color: rgb(224, 224, 224);
+  text-align: center;
+  width: 100%;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+
 .myteaminfo {
   text-align: center;
-  padding-top: 5rem;
-  height: 10rem;
-
   margin-bottom: 8rem;
+  height: 10rem;
+  width: 100%;
 }
 
 .myteamimg {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   border-radius: 3rem;
   opacity: 0.8;
 }
 
 
 .myteamheader {
-  color:rgb(224, 224, 224);
-  margin: 1rem;
+  color: rgb(224, 224, 224);
   text-align: left;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+}
+
+.myteamprev {
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.myteamprevheader {
+  color: rgb(224, 224, 224);
 }
 
 
@@ -358,8 +383,8 @@ form select {
 }
 
 .resultsfixtures {
-  position: relative;
-  top: 5rem;
+  /* position: relative; */
+  /* top: 5rem; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -373,12 +398,15 @@ form select {
   margin-bottom: .5rem;
 }
 
-.resfixheader {
-  text-align: center;
-  padding-top: 5rem;
-  height: 10rem;
 
+.resfixheader {
+  color: rgb(224, 224, 224);
+  text-align: left;
+  padding-left: 1rem;
+  margin-top: 5rem;
+  width: 100%;
 }
+
 
 /* HOME PAGE */
 
@@ -413,17 +441,3 @@ form select {
   left: 10rem;
   width: 200px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

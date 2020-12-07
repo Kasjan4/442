@@ -21,8 +21,8 @@ const Results = (props) => {
 
   return <div className="container-results-fixtures">
 
-    <div className="resfixheader">
-      <h1 className="myteamheader">Upcoming Fixtures</h1>
+    <div className="resfixinfo">
+      <h1 className="resfixheader">Upcoming Fixtures</h1>
     </div>
 
     <div className="resultsfixtures">

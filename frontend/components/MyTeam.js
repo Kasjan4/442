@@ -6,58 +6,72 @@ import { Link } from 'react-router-dom'
 
 const MyTeam = (props) => {
 
-
   const [accountData, updateAccountData] = useState({})
 
+  // const [teamId, setTeamId] = useState('')
+
+
+  useEffect(() => {
+    axios.get(`/api/users/${props.match.params.id}`)
+      .then((resp) => {
+        updateAccountData(resp.data)
+
+      
+      })
+  }, [])
+
+
+  // const [teamInfo, setTeamInfo] = useState({})
 
   // useEffect(() => {
-  //   axios.get(`/api/users/${props.match.params.id}`)
+  //   axios.get(`/api/team/133610`)
   //     .then((resp) => {
-
-  //       updateAccountData(resp.data)
+  //       const team = resp.data
+  //       setTeamInfo(team)
 
   //     })
-  // }, [])
+  // }, [teamId])
 
-  const [teamInfo, setTeamInfo] = useState([])
 
-  useEffect(() => {
-    axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=133602`)
-      .then((resp) => {
-        const data = resp.data.teams
-        const team = data[0]
-        setTeamInfo(team)
-        console.log(team)
-      })
-  }, [])
 
-  const [teamEvents, setTeamEvents] = useState([])
+  // const [teamEvents, setTeamEvents] = useState([])
 
-  useEffect(() => {
-    axios.get(`https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=133602`)
-      .then((resp) => {
+  // useEffect(() => {
+  //   axios.get(`https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=133610`)
+  //     .then((resp) => {
 
-        setTeamEvents(resp.data.events)
-        console.log(teamEvents)
-      })
-  }, [])
+  //       const events = resp.data.events
+  //       console.log(events)
 
-  const [teamResults, setTeamResults] = useState([])
+  //       // setTeamEvents(teamEvents => teamEvents.concat(events))
 
-  useEffect(() => {
-    axios.get(`https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=133602`)
-      .then(resp => {
-        const results = resp.data.results
-        setTeamResults(results)
+  //       setTeamEvents(events)
 
-        console.log(results)
-      })
-  }, [])
+  //     })
+  // }, [teamId])
+
+
+
+
+  // const [teamResults, setTeamResults] = useState()
+
+  // useEffect(() => {
+  //   axios.get(`https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=133610`)
+  //     .then(resp => {
+  //       const results = resp.data.results
+  //       setTeamResults(results)
+      
+  //     })
+  // }, [accountData.team])
+
+ 
 
   return <div className="container-results-fixtures">
 
+    <h1 className="username">{accountData.username}</h1>
+
     <div className="myteaminfo">
-      <img className="myteamimg" src={teamInfo.strTeamBanner} />
+      {/* <img className="myteamimg" src={teamInfo.strTeamBanner} /> */}
       <h1 className="myteamheader">Upcoming Fixtures</h1>
     </div>
 
@@ -65,7 +79,7 @@ const MyTeam = (props) => {
 
     <div className="resultsfixtures">
 
-      {teamEvents.map((result, index) => {
+      {/* {teamEvents.map((result, index) => {
 
         return <div key={index} className="card text-center">
           <img className="card-img-top" src={result.strThumb} alt="Card image cap" />
@@ -80,14 +94,14 @@ const MyTeam = (props) => {
           </div>
         </div>
 
-      })}
+      })} */}
 
 
-      <div className="myteaminfo">
-        <h1 className="myteamheader text-center">Previous<br />Results</h1>
+      <div className="myteamprev">
+        <h1 className="myteamprevheader text-center">Previous<br />Results</h1>
       </div>
 
-      {teamResults.map((result, index) => {
+      {/* {teamResults.map((result, index) => {
 
         return <div key={index} className="card text-center">
           <img className="card-img-top" src={result.strThumb} alt="Card image cap" />
@@ -101,15 +115,13 @@ const MyTeam = (props) => {
           </div>
         </div>
 
-      })}
+      })} */}
 
 
     </div>
 
+
   </div>
-
-
-
 
 
 }

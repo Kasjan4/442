@@ -20,30 +20,34 @@ const Navbar = (props) => {
 
   const [searchTerm, setSearchTerm] = useState('')
 
-
-  const leagues = [
-    { id: 4328, name: 'Premier League' },
-    { id: 4331, name: 'Bundesliga' },
-    { id: 4335, name: 'La Liga' },
-    { id: 4332, name: 'Seria A' },
-    { id: 4334, name: 'Ligue 1' },
-    { id: 4337, name: 'Eredivisie' },
-    { id: 4346, name: 'MLS' },
-    { id: 4344, name: 'Primeira Liga' },
-    { id: 4359, name: 'Chinese Super League' },
-    { id: 4330, name: 'Scottish Premier League' },
-    { id: 4336, name: 'Superleague Greece' },
-    { id: 4338, name: 'Belgian First Division A' },
-    { id: 4339, name: 'Turkish Super Lig' },
-    { id: 4351, name: 'Brazilian Serie A' },
-    { id: 4355, name: 'Russian Football Premier League' },
-    { id: 4347, name: 'Swedish Allsvenskan' },
-    { id: 4350, name: 'Mexican Primera League' },
-    { id: 4354, name: 'Ukrainian Premier League' },
-    { id: 4358, name: 'Norwegian Eliteserien' }
-  ]
+  const [searchData, setSearchData] = useState([])
 
 
+  useEffect(() => {
+    axios.get('/api/leagues')
+      .then((resp) => {
+        const leagues = resp.data
+
+        setSearchData(leagues)
+
+      })
+  }, [])
+
+  useEffect(() => {
+    axios.get('/api/teams')
+      .then((resp) => {
+        const teams = resp.data
+
+        let finalSearchData = [...searchData]
+
+        for (let i = 0; i < teams.length; i++) {
+
+          finalSearchData.push(teams[i])
+        }
+        setSearchData(searchData => searchData.concat(finalSearchData))
+
+      })
+  }, [])
 
 
   function handleLogout() {
@@ -53,7 +57,7 @@ const Navbar = (props) => {
 
   function closeSearch() {
     setSearchTerm('')
-    
+
   }
 
 
@@ -73,7 +77,7 @@ const Navbar = (props) => {
           <form className="form-inline my-2 my-lg-0 search-bar">
             <input className="form-control mr-sm-2"
               type="search"
-              placeholder="Search leagues"
+              placeholder="Search leagues/teams"
               aria-label="Search"
               value={searchTerm}
               onChange={(event) => {
@@ -84,8 +88,8 @@ const Navbar = (props) => {
         </Fade>
 
         <div className="search-results">
-      
-          {leagues.filter((val) => {
+
+          {searchData.filter((val) => {
             if (searchTerm === '') {
               return ''
             } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -93,11 +97,16 @@ const Navbar = (props) => {
             }
 
           }).map((val, key) => {
-            return (
 
-              <Link to={`/league/${val.id}`} key={key} onClick={closeSearch}>{val.name}</Link>
+            if (val.id.toString().length < 5) {
 
-            )
+              return <Link to={`/league/${val.id}`} key={key} onClick={closeSearch}>{val.name}</Link>
+
+            } else if (val.id.toString().length > 5) {
+
+              return <Link to={`/team/${val.id}`} key={key} onClick={closeSearch}>{val.name}</Link>
+            }
+
           })}
         </div>
 

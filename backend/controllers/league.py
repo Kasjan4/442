@@ -7,6 +7,7 @@ from middleware.secure_route import secure_route
 from marshmallow import ValidationError
 
 
+
 league_schema = LeagueSchema()
 
 

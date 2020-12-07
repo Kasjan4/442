@@ -21,6 +21,9 @@ const Results = (props) => {
 
   return <div className="container-results-fixtures">
 
+    <div className="resfixinfo">
+      <h1 className="resfixheader">Previous Results</h1>
+    </div>
 
     <div className="resultsfixtures">
 
@@ -34,7 +37,7 @@ const Results = (props) => {
             <h5 className="card-round">Round {result.intRound}</h5>
             <h5 className="card-round">{result.strStatus}</h5>
 
-            
+
           </div>
         </div>
 
