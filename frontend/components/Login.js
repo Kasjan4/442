@@ -30,13 +30,8 @@ const Login = (props) => {
     axios.post('/api/login', formData)
       .then(resp => {
 
-        if (resp.data.message) {
-          updateErrors(resp.data)
-
-        } else {
-          localStorage.setItem('token', resp.data.token)
-          props.history.push('/resorts')
-        }
+        localStorage.setItem('token', resp.data.token)
+        props.history.push('/')
 
       })
   }

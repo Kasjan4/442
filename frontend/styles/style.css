@@ -4,8 +4,12 @@
 
 /* UNIVERSAL */
 
+#root {
+background-color: black!important;
+}
+
 body {
-  background-color: rgb(194, 250, 194);
+  background-color: black!important;
   margin: 0;
   padding: 0;
 }
@@ -99,13 +103,12 @@ body {
 
 .marker {
   cursor: pointer !important;
-  width: 50px;
+  width: 20px;
   transition: ease .5s;
 }
 
 .marker:hover {
-  width: 60px;
-
+  width: 30px;
 }
 
 
@@ -171,6 +174,7 @@ body {
   text-align: center;
   overflow-y: scroll;
   border-radius: 1rem;
+  max-height: 50vh;
 }
 
 
@@ -379,8 +383,13 @@ form select {
 
 .map-menu {
   position: relative;
-  top: 100px;
+  display: inline;
+  top: 12px;
   left: 100px;
+  z-index: 999;
+  padding: 0;
+  margin: 0;
+  width: min-content;
 }
 
 

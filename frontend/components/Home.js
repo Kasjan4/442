@@ -9,7 +9,7 @@ const Home = () => {
 
   const [leagues, setLeague] = useState([])
 
-
+  
   const [viewPort, setViewPort] = useState({
     height: '100vh',
     width: '100vw',
@@ -20,10 +20,9 @@ const Home = () => {
   })
 
   useEffect(() => {
-    axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4331`)
+    axios.get('/api/leagues')
       .then(resp => {
-        const leagues = resp.data.leagues
-        console.log(leagues)
+        const leagues = resp.data
         setLeague(leagues)
 
       })
@@ -95,16 +94,16 @@ const Home = () => {
 
 
       {leagues.map((league, index) => {
-        return <Link to='/league/4331' key={index}>
+        return <Link to={`/league/${league.id}`} key={index}>
           <Marker
 
-            latitude={50.77320442818988}
-            longitude={10.0305464614366}
-            offsetTop={-48}
-            offsetLeft={-24}
+            latitude={league.lat}
+            longitude={league.lon}
+            // offsetTop={-48}
+            // offsetLeft={-24}
           >
 
-            <img className="marker" src={league.strBadge} />
+            <img className="marker" src={league.badge} />
           </Marker>
         </Link>
       })}

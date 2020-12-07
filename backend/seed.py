@@ -67,8 +67,8 @@ with app.app_context():
         username="admin",
         email="admin@admin.com",
         password="admin",
-        favourite_team_id="133612",
-        favourite_league_id="4332"
+        team="133612",
+        league="4332"
     )
     db.session.add_all(league_object_list + [admin])
     db.session.commit()

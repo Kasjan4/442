@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFutbol } from '@fortawesome/free-solid-svg-icons'
+import { faCross, faFutbol } from '@fortawesome/free-solid-svg-icons'
 import Bounce from 'react-reveal/Bounce'
 import Fade from 'react-reveal/Fade'
 
@@ -84,6 +84,7 @@ const Navbar = (props) => {
         </Fade>
 
         <div className="search-results">
+      
           {leagues.filter((val) => {
             if (searchTerm === '') {
               return ''
@@ -121,7 +122,7 @@ const Navbar = (props) => {
 
         {
           token && <li className="nav-item">
-            <Link to={`/users/${finalId}`} className="nav-link">Account</Link>
+            <Link to={`/users/${finalId}`} className="nav-link">My Team</Link>
           </li>
         }
 

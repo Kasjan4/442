@@ -1,6 +1,5 @@
 from app import db
 from models.base import BaseModel
-# from models.hotel_note import hotels_notes_join
 from models.user import User
 # from models.note import Note
 
@@ -16,7 +15,7 @@ class Team(db.Model, BaseModel):
   image = db.Column(db.String(200), nullable=True)
   stadium = db.Column(db.String(100), nullable=True)
   league_id = db.Column(db.Integer(), db.ForeignKey('leagues.id'))
-  fans = db.relationship('User', backref='favourite_team')
+  # fans = db.relationship('User', backref='favourite_team')
  
 
 

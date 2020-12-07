@@ -75,6 +75,7 @@ const Register = (props) => {
     axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=${formData.league}`)
       .then(resp => {
         const teams = resp.data.teams
+        console.log(resp.data)
         setTeams(teams)
         console.log(teams)
       })
@@ -108,13 +109,15 @@ const Register = (props) => {
 
 
 
-
-
   function handleSubmit(event) {
 
     event.preventDefault()
 
-    axios.post('/api/register', formData)
+    const submitReady = formData
+    delete submitReady.passwordConfirmation
+
+
+    axios.post('/api/register', submitReady)
       .then(resp => {
 
         if (resp.data.errors) {

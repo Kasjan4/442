@@ -8,8 +8,8 @@ user_schema = UserSchema()
 router = Blueprint(__name__, 'users')
 
 
-@router.route('/signup', methods=['POST'])
-def signup():
+@router.route('/register', methods=['POST'])
+def register():
   request_body = request.get_json()
   user = user_schema.load(request_body)
 
