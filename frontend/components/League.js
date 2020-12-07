@@ -5,10 +5,6 @@ import { getUserId, isCreator } from '../lib/auth'
 
 
 
-
-
-
-
 const League = (props) => {
 
   const id = props.match.params.id
@@ -23,7 +19,9 @@ const League = (props) => {
         setLeague(league)
 
       })
-  }, [])
+  }, [id])
+
+  console.log('here')
 
 
 
