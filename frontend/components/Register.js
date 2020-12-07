@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Fade from 'react-reveal/Fade'
+import Slide from 'react-reveal/Slide'
 
 
 
@@ -11,15 +12,45 @@ const Register = (props) => {
     username: '',
     email: '',
     password: '',
-    passwordConfirmation: ''
+    passwordConfirmation: '',
+    league: 4328,
+    team: 133604
   })
+
+  const [teams, setTeams] = useState([])
+
 
   const [errors, updateErrors] = useState({
     username: '',
     email: '',
     password: '',
-    passwordConfirmation: ''
+    passwordConfirmation: '',
+    league: 0,
+    team: 0
+
   })
+
+  const leagues = [
+    { id: 4328, name: 'Premier League' },
+    { id: 4331, name: 'Bundesliga' },
+    { id: 4335, name: 'La Liga' },
+    { id: 4332, name: 'Seria A' },
+    { id: 4334, name: 'Ligue 1' },
+    { id: 4337, name: 'Eredivisie' },
+    { id: 4346, name: 'MLS' },
+    { id: 4344, name: 'Primeira Liga' },
+    { id: 4359, name: 'Chinese Super League' },
+    { id: 4330, name: 'Scottish Premier League' },
+    { id: 4336, name: 'Superleague Greece' },
+    { id: 4338, name: 'Belgian First Division A' },
+    { id: 4339, name: 'Turkish Super Lig' },
+    { id: 4351, name: 'Brazilian Serie A' },
+    { id: 4355, name: 'Russian Football Premier League' },
+    { id: 4347, name: 'Swedish Allsvenskan' },
+    { id: 4350, name: 'Mexican Primera League' },
+    { id: 4354, name: 'Ukrainian Premier League' },
+    { id: 4358, name: 'Norwegian Eliteserien' }
+  ]
 
   function handleChange(event) {
 
@@ -38,16 +69,54 @@ const Register = (props) => {
 
     updateFormData(data)
     updateErrors(newErrors)
-
   }
+
+  useEffect(() => {
+    axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=${formData.league}`)
+      .then(resp => {
+        const teams = resp.data.teams
+        setTeams(teams)
+        console.log(teams)
+      })
+  }, [formData])
+
+
+  const [teamImage, setTeamImage] = useState('')
+
+  useEffect(() => {
+    axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${formData.team}`)
+      .then(resp => {
+        const team = resp.data.teams
+        const image = team[0].strTeamBadge
+        setTeamImage(image)
+        console.log(team)
+      })
+  }, [formData])
+
+  const [leagueImage, setLeagueImage] = useState('')
+
+
+  useEffect(() => {
+    axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${formData.league}`)
+      .then(resp => {
+        const league = resp.data.leagues
+        const image = league[0].strBadge
+        setLeagueImage(image)
+        console.log(league)
+      })
+  }, [formData])
+
+
+
+
 
   function handleSubmit(event) {
 
     event.preventDefault()
 
-    axios.post('/api/joinus', formData)
+    axios.post('/api/register', formData)
       .then(resp => {
-        console.log(resp.data)
+
         if (resp.data.errors) {
           updateErrors(resp.data.errors)
         } else {
@@ -57,11 +126,19 @@ const Register = (props) => {
 
   }
 
-  console.log(formData)
+
 
   return <div className="background">
     <Fade>
-      <div className="container container-custom">
+      <div className="container-login-register ">
+
+        <Slide right appear spy={formData.team} duration={500}>
+          <img className="regteambadge" src={teamImage}></img>
+        </Slide>
+
+        <Slide left appear spy={formData.league} duration={500}>
+          <img className="regleaguebadge" src={leagueImage}></img>
+        </Slide>
 
         <form onSubmit={handleSubmit}>
 
@@ -124,6 +201,60 @@ const Register = (props) => {
               {'Does not match password'}
             </p>}
           </div>
+
+          <p className="regyourteam">YOUR TEAM</p>
+
+          <div className="form-group">
+            <select
+              className="form-control"
+              placeholder="League"
+              type="league"
+              onChange={handleChange}
+              value={formData.league}
+              name="league"
+              required
+
+            >
+              {leagues.map((league, index) => {
+                return <option key={index} value={league.id}>{league.name}</option>
+              })}
+
+            </select>
+
+
+
+
+            <div className="form-group">
+              <select
+                className="form-control"
+                placeholder="team"
+                type="team"
+                onChange={handleChange}
+                value={formData.team}
+                name="team"
+                required
+
+              >
+
+
+                {teams.map((team, index) => {
+                  return <option key={index} value={team.idTeam}>{team.strTeam}</option>
+                })}
+
+              </select>
+
+
+            </div>
+
+
+            {errors.passwordConfirmation && <p id="error" style={{ color: 'red' }}>
+              {'Does not match password'}
+            </p>}
+          </div>
+
+
+
+
 
           <button className="btn btn-dark">Submit</button>
 

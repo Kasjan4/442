@@ -5,7 +5,9 @@
 /* UNIVERSAL */
 
 body {
-  background-color: black;
+  background-color: rgb(194, 250, 194);
+  margin: 0;
+  padding: 0;
 }
 
 .btn-dark {
@@ -13,25 +15,39 @@ body {
   margin-left: .2rem;
   margin-right: .2rem;
   background-color: darkgreen !important;
-  border-radius: 0 !important;
+  border-radius: .5rem !important;
   border: none !important;
   transition: ease .5s;
-
 }
 
 .btn-dark:hover {
   transition: ease .5s;
   background-color: rgb(1, 80, 1) !important;
+}
 
+.container {
+  background-color: rgb(194, 250, 194);
 }
 
 
 .container-custom {
+  /* height: 100vh; */
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding-bottom: 7rem;
+  width: 100vw;
+}
+
+.container-login-register {
   height: 100vh;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 
 .container-single {
@@ -43,10 +59,25 @@ body {
   flex-direction: column;
 }
 
-.background {
-  background-color: black;
+.container-results-fixtures {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  position: relative;
+  background: black;
+  padding-bottom: 7rem;
+  width: 100vw;
+
 }
 
+.background {
+  background-image: url(https://i.imgur.com/N86uPRO.jpg);
+  height: 100%;
+  background-size: cover;
+}
 
 #error {
   font-size: 10px;
@@ -55,6 +86,8 @@ body {
 
 
 /* HOME */
+
+
 
 
 .map-menu {
@@ -66,18 +99,28 @@ body {
 
 .marker {
   cursor: pointer !important;
+  width: 50px;
+  transition: ease .5s;
+}
+
+.marker:hover {
+  width: 60px;
+
 }
 
 
-
-
 /* NAVBAR */
+
 
 .navbar {
   text-transform: uppercase;
   font-weight: 700;
   font-size: .9rem;
   letter-spacing: .1rem;
+}
+
+.ball {
+  color: rgb(255, 255, 255, 0.8);
 }
 
 .nav-background {
@@ -100,19 +143,40 @@ body {
 }
 
 .search-bar {
-  margin-right: 3rem;
+  margin-right: 5rem;
 }
 
-.btn-outline-success {
-  background-color: rgb(1, 80, 1, 0.8) !important;
+
+.search-results a {
+  color: white;
+  font-size: .7rem;
+  padding: .8rem .5rem .8rem .5rem;
+  display: block;
 }
 
-.btn-outline-success:hover {
-  background-color: rgb(2, 116, 2) !important;
+.search-results a:hover {
+  color: rgb(226, 224, 224);
+  cursor: pointer;
+  background-color: rgba(5, 168, 5, 0.6);
+  text-decoration: none;
 }
+
+.search-results {
+  position: absolute;
+  top: 5rem;
+  background-color: rgb(0, 128, 0, 0.8);
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-y: scroll;
+  border-radius: 1rem;
+}
+
 
 
 /* LOGIN */
+
 
 
 form {
@@ -121,20 +185,235 @@ form {
 }
 
 form input {
-  color: white !important;
-  border-radius: 0 !important;
-  background-color: rgb(255, 255, 255, 0.2) !important;
+  border-radius: 1rem !important;
+  background-color: rgb(255, 255, 255, 0.7) !important;
   border: 1px solid white;
 }
 
 form ::placeholder {
-  color: rgb(255, 255, 255, 0.5) !important;
+  /* color: rgb(255, 255, 255, 0.5) !important; */
 }
 
+form select {
+  border-radius: 0 !important;
+  background-color: rgb(255, 255, 255, 0.7) !important;
+  border: 1px solid white;
+}
+
+.loginques {
+  color: white;
+  background-color: rgb(0, 128, 0, 0.8);
+  padding: 0 1rem 0 1rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+}
+
+.loginques:hover {
+  color: white;
+}
 
 /* LEAGUE PAGE */
 
+.card-desc {
+  font-size: .9rem;
+  color: rgb(218, 218, 218);
+  text-align: left;
+}
+
+.card-website {
+  color: rgb(47, 47, 248) !important;
+  margin-top: 1.5rem;
+}
+
+.league-section {
+  position: relative;
+  top: 6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.league-img {
+  width: 25rem !important;
+  height: 10rem !important;
+}
+
+.resfixbtn {
+  margin-top: 2rem;
+}
+
+.year {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.year strong {
+  color: white;
+}
+
+.btn-resfix {
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+
+/* TEAM PAGE */
+
+.myteaminfo {
+  text-align: center;
+  padding-top: 5rem;
+  height: 10rem;
+
+  margin-bottom: 8rem;
+}
+
+.myteamimg {
+  margin-bottom: 2rem;
+  border-radius: 3rem;
+  opacity: 0.8;
+}
+
+
+.myteamheader {
+  color:rgb(224, 224, 224);
+  margin: 1rem;
+  text-align: left;
+}
 
 
 
-/* ACCOUNT PAGE */
+
+/* FIXTURES/RESULTS */
+
+.card {
+  width: 18rem;
+  height: 20rem;
+  margin: .7rem;
+  border: none !important;
+  opacity: 0.8;
+}
+
+.card-league {
+  width: 55rem;
+  margin: .7rem;
+  border: none !important;
+  opacity: 0.8;
+
+}
+
+.card-img-top {
+  width: 100%;
+  height: 10rem;
+}
+
+.btn-resort {
+  font-size: .8rem !important;
+}
+
+.card-body {
+  overflow-y: scroll;
+  padding-top: .7rem !important;
+}
+
+.card-text {
+  font-size: .7rem;
+  overflow-x: hidden !important;
+  height: inherit;
+}
+
+.score {
+  color: rgb(247, 53, 53);
+  text-align: center;
+  font-size: 2rem;
+}
+
+.date {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.card-title {
+  font-size: 1rem;
+}
+
+.card-text-venue {
+  font-size: 1.2rem;
+}
+
+.card-round {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.resultsfixtures {
+  position: relative;
+  top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.card-time {
+  font-size: .8rem;
+  padding: 0;
+  margin: 0;
+  margin-bottom: .5rem;
+}
+
+.resfixheader {
+  text-align: center;
+  padding-top: 5rem;
+  height: 10rem;
+
+}
+
+/* HOME PAGE */
+
+.map-menu {
+  position: relative;
+  top: 100px;
+  left: 100px;
+}
+
+
+/* REGISTER */
+
+.regyourteam {
+  color: white;
+  background-color: rgb(0, 128, 0, 0.8);
+  border-radius: 1rem;
+}
+
+.regteambadge {
+  position: absolute;
+  right: 10rem;
+  width: 200px;
+}
+
+.regleaguebadge {
+  position: absolute;
+  left: 10rem;
+  width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

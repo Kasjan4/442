@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
 
-  const [resorts, updateResorts] = useState([])
-  
+
+  const [leagues, setLeague] = useState([])
+
 
   const [viewPort, setViewPort] = useState({
     height: '100vh',
@@ -18,12 +19,13 @@ const Home = () => {
 
   })
 
-
-
   useEffect(() => {
-    axios.get('/api/resorts')
+    axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4331`)
       .then(resp => {
-        updateResorts(resp.data)
+        const leagues = resp.data.leagues
+        console.log(leagues)
+        setLeague(leagues)
+
       })
   }, [])
 
@@ -33,7 +35,6 @@ const Home = () => {
       latitude: 37,
       longitude: -102,
       zoom: 3,
-
       height: '100vh',
       width: '100vw'
     }
@@ -93,13 +94,17 @@ const Home = () => {
       </div>
 
 
-      {resorts.map((resort, index) => {
-        return <Link to={`/resorts/${resort.name}`} key={index}>
+      {leagues.map((league, index) => {
+        return <Link to='/league/4331' key={index}>
           <Marker
-            latitude={resort.lat}
-            longitude={resort.lon}
+
+            latitude={50.77320442818988}
+            longitude={10.0305464614366}
+            offsetTop={-48}
+            offsetLeft={-24}
           >
-            <img className="marker" src="https://img.icons8.com/material/24/000000/marker--v1.png" />
+
+            <img className="marker" src={league.strBadge} />
           </Marker>
         </Link>
       })}
