@@ -24,6 +24,17 @@ def index():
 
 
 
+@router.route('/league/<int:id>', methods=['GET'])
+def get_single_league(id):
+  league = League.query.get(id)
+
+  if not league:
+    return { 'message': 'League not available' }, 404
+
+  return league_schema.jsonify(league), 200
+
+
+
 
 # @router.route('/hotels/notes', methods=['GET'])
 # def get_notes():
