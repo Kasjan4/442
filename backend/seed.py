@@ -4,28 +4,31 @@ from app import app, db
 from models.user import User
 from models.team import Team
 from models.league import League
-
-
+from tqdm import tqdm
 import requests
 
-
 with app.app_context():
-
+  
     db.drop_all()
 
     db.create_all()
 
-
     league_list = requests.get('https://www.thesportsdb.com/api/v1/json/1/all_leagues.php').json()
     league_object_list =[]
+    countries = {}
     existing_team_ids = set()
-    for league in league_list['leagues']:
+    print("starting ...")
+    for league in tqdm(league_list['leagues']):
       if league['strSport'] == 'Soccer':
         league_details = requests.get(f'https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id={league["idLeague"]}').json()
         league_details = league_details ['leagues'][0]
-
-        country_latlng = requests.get(f'https://api.opencagedata.com/geocode/v1/json?q={league_details["strCountry"]}&key=ab82c77042d74ae6aae0bb67ff494887').json()
-        country_latlng = country_latlng['results'][0]['bounds']
+        country = league_details['strCountry']
+        if country in countries:
+          country_latlng = countries[country]
+        else:
+          country_latlng = requests.get(f'https://api.opencagedata.com/geocode/v1/json?q={league_details["strCountry"]}&key=ab82c77042d74ae6aae0bb67ff494887').json()
+          country_latlng = country_latlng['results'][0]['bounds']
+          countries[country] = country_latlng
 
         league_object = League(
         id = league_details['idLeague'],

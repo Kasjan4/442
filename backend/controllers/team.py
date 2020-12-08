@@ -19,7 +19,6 @@ def index():
   return team_schema.jsonify(teams, many=True), 200
 
 
-
 @router.route('/team/<int:id>', methods=['GET'])
 def get_single_team(id):
 

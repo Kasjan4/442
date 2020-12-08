@@ -13,8 +13,9 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 bcrypt = Bcrypt(app)
 
-from controllers import league, users, team
+from controllers import league, users, team, player
 
 app.register_blueprint(league.router, url_prefix="/api")
 app.register_blueprint(users.router, url_prefix="/api")
 app.register_blueprint(team.router, url_prefix="/api")
+app.register_blueprint(player.router, url_prefix="/api")

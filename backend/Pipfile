@@ -12,6 +12,7 @@ psycopg2-binary = "*"
 flask-bcrypt = "*"
 pyjwt = "*"
 requests = "*"
+tqdm = "*"
 
 [dev-packages]
 
