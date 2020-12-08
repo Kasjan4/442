@@ -9,7 +9,7 @@ const Home = () => {
 
   const [leagues, setLeague] = useState([])
 
-  
+
   const [viewPort, setViewPort] = useState({
     height: '100vh',
     width: '100vw',
@@ -76,7 +76,10 @@ const Home = () => {
 
   return <div>
 
-    <MapGL
+    {!leagues && <div>
+    </div>}
+
+    {leagues && <MapGL
 
       mapboxApiAccessToken={'pk.eyJ1Ijoic2Vhbi1mZW5lbG9uIiwiYSI6ImNraGMxbHBvOTAycWUycm1wczNpemZ0MGsifQ.phMK4dt1j_7wvlbYTbLWxg'}
       mapStyle='mapbox://styles/kasjanhinc/cki93e734c41r19qu8nbtm8fa'
@@ -100,15 +103,15 @@ const Home = () => {
 
             latitude={league.lat}
             longitude={league.lon}
-            // offsetTop={-48}
-            // offsetLeft={-24}
+          // offsetTop={-48}
+          // offsetLeft={-24}
           >
 
             <img className="marker" src={league.badge} />
           </Marker>
         </Link>
       })}
-    </MapGL>
+    </MapGL>}
   </div >
 
 }

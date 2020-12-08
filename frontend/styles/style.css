@@ -109,6 +109,7 @@ body {
 
 
 
+
 .map-menu {
   position: relative;
   top: 100px;
@@ -245,8 +246,8 @@ form select {
 }
 
 .card-transparent {
-  background-color: transparent!important;
-  color: white!important;
+  background-color: transparent !important;
+  color: white !important;
 }
 
 .card-website {
@@ -294,8 +295,9 @@ form select {
 }
 
 .btn-teams {
-  margin-top: 3rem!important;
+  margin-top: 3rem !important;
 }
+
 /* TEAM PAGE */
 
 .username {
@@ -370,7 +372,7 @@ form select {
 }
 
 .card-img-top-league-teams {
-  width: 10rem!important;
+  width: 10rem !important;
   height: 10rem;
 }
 
@@ -497,26 +499,26 @@ form select {
 
 table {
   color: white;
-  background-color: rgb(2, 70, 2)!important;
+  background-color: rgb(2, 70, 2) !important;
   border-radius: 1rem;
 }
 
 
 table th {
- padding: 1rem;
- border-top: 1px solid rgb(0, 0, 0, 0.7);
- border-bottom: 1px solid rgb(0, 0, 0, 0.7);
- background-color: green!important;
+  padding: 1rem;
+  border-top: 1px solid rgb(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgb(0, 0, 0, 0.7);
+  background-color: green !important;
 }
 
 .table-top {
-  background-color:rgb(2, 70, 2)!important;
-  border-radius: 1rem!important;
+  background-color: rgb(2, 70, 2) !important;
+  border-radius: 1rem !important;
 }
 
 .table-top-columns {
-  background-color:rgb(2, 70, 2)!important;
-  border-radius: 1rem!important;
+  background-color: rgb(2, 70, 2) !important;
+  border-radius: 1rem !important;
   text-transform: uppercase;
 }
 
@@ -538,7 +540,7 @@ table th {
 }
 
 .player-desc {
-  color: white!important;
+  color: white !important;
   padding: 1.5rem;
   border-radius: 1rem;
   font-size: .7rem;

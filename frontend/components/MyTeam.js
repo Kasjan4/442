@@ -6,31 +6,52 @@ import { Link } from 'react-router-dom'
 
 const MyTeam = (props) => {
 
+  const [dataReady, setDataReady] = useState(0)
+
   const [accountData, updateAccountData] = useState({})
 
-  // const [teamId, setTeamId] = useState('')
+  const [teamInfo, setTeamInfo] = useState({})
 
 
   useEffect(() => {
     axios.get(`/api/users/${props.match.params.id}`)
       .then((resp) => {
         updateAccountData(resp.data)
+        console.log(resp.data.team)
+        const team = resp.data.team
+        getTeam(team)
 
-      
       })
+    // .then((resp) => {
+
+    //   const team = accountData.team
+
+    //   axios.get(`/api/team/${team}`)
+    //     .then((resp) => {
+    //       const team = resp.data
+    //       setTeamInfo(team)
+    //     })
+
+    // })
   }, [])
 
 
-  // const [teamInfo, setTeamInfo] = useState({})
 
-  // useEffect(() => {
-  //   axios.get(`/api/team/133610`)
-  //     .then((resp) => {
-  //       const team = resp.data
-  //       setTeamInfo(team)
 
-  //     })
-  // }, [teamId])
+
+  const getTeam = (team) => {
+    axios.get(`/api/team/${team}`)
+      .then((resp) => {
+        setTeamInfo(resp.data)
+        console.log(resp.data)
+      })
+
+  }
+
+
+
+
+
 
 
 
@@ -43,7 +64,6 @@ const MyTeam = (props) => {
   //       const events = resp.data.events
   //       console.log(events)
 
-  //       // setTeamEvents(teamEvents => teamEvents.concat(events))
 
   //       setTeamEvents(events)
 
@@ -60,18 +80,18 @@ const MyTeam = (props) => {
   //     .then(resp => {
   //       const results = resp.data.results
   //       setTeamResults(results)
-      
+
   //     })
   // }, [accountData.team])
 
- 
+
 
   return <div className="container-results-fixtures">
 
     <h1 className="username">{accountData.username}</h1>
 
     <div className="myteaminfo">
-      {/* <img className="myteamimg" src={teamInfo.strTeamBanner} /> */}
+      <img className="myteamimg" src={teamInfo.image} />
       <h1 className="myteamheader">Upcoming Fixtures</h1>
     </div>
 
