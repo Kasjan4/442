@@ -71,7 +71,7 @@ const Players = (props) => {
           <div className="player-desc">
             <a href={`https://${currentPlayer.instagram}`} target="_blank" ><FontAwesomeIcon className="player-insta" icon={['fab', 'instagram']} /></a>
             
-            <Link to={`/team/${currentPlayer.team_id}`} className="btn btn-dark btn-resfix btn-teams btn-player">View Team</Link>
+            <Link to={`/team/${currentPlayer.team_id}`} className="btn btn-dark btn-resfix btn-teams btn-player">View Club</Link>
             <h1 className="player-name">{currentPlayer.player_name}</h1><br />
             <p className="player-nat" >Nation: <strong>{currentPlayer.nationality}</strong></p><br /><p className="player-nat" >Club: <strong>{currentPlayer.team_name}</strong></p><br />
             {currentPlayer.description}
