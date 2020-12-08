@@ -45,6 +45,7 @@ const League = (props) => {
           <div className="resfixbtn">
             <Link to={`/league/${id}/results`} className="btn btn-dark btn-resfix">Results</Link>
             <Link to={`/league/${id}/fixtures`} className="btn btn-dark btn-resfix">Fixtures</Link>
+            <Link to={`/league/${id}/table`} className="btn btn-dark btn-resfix">League Table</Link>
           </div>
           <div className="card-body">
             <h1 className="year"><strong>Founded: {league.year}</strong></h1>
@@ -63,15 +64,7 @@ const League = (props) => {
           return <div key={index} className="card text-center card-transparent">
             <img className="card-img-top-league-teams text-center" src={team.strTeamBadge} alt="Card image cap" />
             <Link to={`/team/${team.idTeam}`} className="btn btn-dark btn-resfix btn-teams">View Team</Link>
-            {/* <div className="card-body">
-              <h1 className="date"><strong>{team.stTeam}</strong></h1>
-              <h5 className="card-time">Founded: {team.intFormedYear}</h5>
-              <h4 className="card-text-venue"><strong>S{team.strVenue}</strong></h4>
-              <h5 className="card-round">Round {team.strKeywords}</h5>
-              <h5 className="card-round">{team.strStadiumLocation}</h5>
-
-
-            </div> */}
+          
           </div>
 
         })}

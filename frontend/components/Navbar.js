@@ -77,7 +77,7 @@ const Navbar = (props) => {
           <form className="form-inline my-2 my-lg-0 search-bar">
             <input className="form-control mr-sm-2"
               type="search"
-              placeholder="Search leagues/teams"
+              placeholder="Search"
               aria-label="Search"
               value={searchTerm}
               onChange={(event) => {
@@ -115,6 +115,10 @@ const Navbar = (props) => {
 
         <li className="nav-item">
           <Link to="/" className="nav-link">Home</Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/players" className="nav-link">Players</Link>
         </li>
 
         {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import MapGL, { Marker, LinearInterpolator, FlyToInterpolator } from 'react-map-gl'
+import MapGL, { Marker, FlyToInterpolator } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 
 
@@ -80,6 +80,8 @@ const Home = () => {
 
       mapboxApiAccessToken={'pk.eyJ1Ijoic2Vhbi1mZW5lbG9uIiwiYSI6ImNraGMxbHBvOTAycWUycm1wczNpemZ0MGsifQ.phMK4dt1j_7wvlbYTbLWxg'}
       mapStyle='mapbox://styles/kasjanhinc/cki93e734c41r19qu8nbtm8fa'
+      transitionInterpolator={new FlyToInterpolator()}
+      transitionDuration={1000}
       {...viewPort}
       onViewportChange={(viewPort) => setViewPort(viewPort)}
     >
