@@ -31,13 +31,12 @@ const Home = () => {
   function goToNorthAmerica() {
     const NorthAmericaViewport = {
 
-      latitude: 37,
-      longitude: -102,
-      zoom: 3,
+      latitude: 16.05807270304161,
+      longitude: -89.36906289136971,
+      zoom: 2.2,
       height: '100vh',
       width: '100vw'
     }
-    console.log(NorthAmericaViewport.longitude)
     setViewPort(NorthAmericaViewport)
   }
   function goToWorld() {
@@ -86,10 +85,10 @@ const Home = () => {
     >
 
       <div className="map-menu">
-        <button type="button" className="btn btn-dark" onClick={goToWorld}>WORLD</button>
-        <button type="button" className="btn btn-dark" onClick={goToEurope}>Europe</button>
-        <button type="button" className="btn btn-dark" onClick={goToNorthAmerica}>North America</button>
-        <button type="button" className="btn btn-dark" onClick={goToAsia}>Asia</button>
+        <button type="button" className="btn-home" onClick={goToWorld}>WORLD</button>
+        <button type="button" className="btn-home" onClick={goToEurope}>Europe</button>
+        <button type="button" className="btn-home" onClick={goToNorthAmerica}>Americas</button>
+        <button type="button" className="btn-home" onClick={goToAsia}>Asia</button>
       </div>
 
 
