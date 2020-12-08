@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCross, faFutbol } from '@fortawesome/free-solid-svg-icons'
+import { faFutbol } from '@fortawesome/free-solid-svg-icons'
 import Bounce from 'react-reveal/Bounce'
 import Fade from 'react-reveal/Fade'
 

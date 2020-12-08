@@ -266,6 +266,7 @@ form select {
 
 .league-img {
   width: 40vw !important;
+  
 }
 
 .team-img {
@@ -302,10 +303,13 @@ form select {
 
 .username {
   color: rgb(224, 224, 224);
+  background-color: green;
   text-align: center;
-  width: 100%;
-  margin-top: 5rem;
-  margin-bottom: 1rem;
+  width: 10rem;
+  border-radius: 1rem;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
 }
 
 .myteaminfo {
@@ -336,6 +340,7 @@ form select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 1rem 0 1rem;
 }
 
 .myteamprevheader {
@@ -392,7 +397,7 @@ form select {
 }
 
 .score {
-  color: rgb(247, 53, 53);
+  color: rgb(236, 83, 83);
   text-align: center;
   font-size: 2rem;
 }
@@ -558,6 +563,9 @@ table th {
   text-transform: uppercase;
   font-size: 2.2rem;
   padding: 0;
+  max-width: 80%;
+  overflow-x: scroll;
+  max-height: 5rem;
 
 }
 
@@ -569,6 +577,18 @@ table th {
 
 .btn-player {
   position: absolute;
-  top: 2.7rem;
+  top: 4rem;
   right: 1.5rem;
+}
+
+.player-insta {
+  color: white;
+  position: absolute!important;
+  top: 1rem!important;
+  right: 1.5rem!important;
+  font-size: 2rem;
+}
+
+.player-insta:hover {
+  color: rgb(224, 224, 224);
 }

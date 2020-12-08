@@ -59,7 +59,8 @@ with app.app_context():
             website=team_details['strWebsite'],
             image=team_details['strTeamBadge'],
             stadium=team_details['strStadium'],
-            league_id=league['idLeague']
+            league_id=league['idLeague'],
+            banner=team_details['strTeamBanner'],
             )
             league_object_list.append(team_object)
         

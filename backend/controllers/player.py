@@ -21,7 +21,7 @@ def get_single_player(name):
   if not player:
     return {'message': 'Player not available'}, 404
   player_json = dict(
-    name=name,
+    player_name=player['strPlayer'],
     team_name=player['strTeam'],
     team_id=player['idTeam'],
     description=player['strDescriptionEN'],

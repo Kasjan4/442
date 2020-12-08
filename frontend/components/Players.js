@@ -3,9 +3,15 @@ import axios from 'axios'
 import Fade from 'react-reveal/Fade'
 import { Link } from 'react-router-dom'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas, fab)
+
 
 const Players = (props) => {
-
 
   const [currentPlayer, setCurrentPlayer] = useState({})
 
@@ -29,14 +35,6 @@ const Players = (props) => {
 
     event.preventDefault()
 
-    // useEffect(() => {
-    //   axios.get(`/api/player/${searchTerm}`)
-    //     .then((resp) => {
-    //       const player = resp.data
-    //       setCurrentPlayer(player)
-    //       console.log(player)
-    //     })
-    // }, [])
     setDataReady(dataReady + 1)
     console.log('sefsdf')
 
@@ -71,9 +69,11 @@ const Players = (props) => {
 
         <Fade appear spy={currentPlayer}>
           <div className="player-desc">
+            <a href={`https://${currentPlayer.instagram}`} target="_blank" ><FontAwesomeIcon className="player-insta" icon={['fab', 'instagram']} /></a>
+            
             <Link to={`/team/${currentPlayer.team_id}`} className="btn btn-dark btn-resfix btn-teams btn-player">View Team</Link>
-            <h1 className="player-name">{currentPlayer.name}</h1><br />
-            <p className="player-nat" ><strong>{currentPlayer.nationality}</strong></p><br /><br />
+            <h1 className="player-name">{currentPlayer.player_name}</h1><br />
+            <p className="player-nat" >Nation: <strong>{currentPlayer.nationality}</strong></p><br /><p className="player-nat" >Club: <strong>{currentPlayer.team_name}</strong></p><br />
             {currentPlayer.description}
           </div>
         </Fade>

@@ -34,7 +34,7 @@ const Table = (props) => {
     </div>
 
     {!dataReady && <div>
-      <h1>LOADING TABLE</h1>
+      <h1>LOADING...</h1>
     </div>}
 
     <Fade>

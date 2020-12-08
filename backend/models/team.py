@@ -15,6 +15,7 @@ class Team(db.Model, BaseModel):
   image = db.Column(db.String(200), nullable=True)
   stadium = db.Column(db.String(100), nullable=True)
   league_id = db.Column(db.Integer(), db.ForeignKey('leagues.id'))
+  banner = db.Column(db.String(300), nullable=True)
   # fans = db.relationship('User', backref='favourite_team')
  
 

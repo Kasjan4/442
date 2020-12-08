@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Fade from 'react-reveal/Fade'
 import { Link } from 'react-router-dom'
 
 
 
 const MyTeam = (props) => {
 
-  const [dataReady, setDataReady] = useState(0)
-
   const [accountData, updateAccountData] = useState({})
+
+  const [teamResults, setTeamResults] = useState([])
+
+  const [teamEvents, setTeamEvents] = useState([])
 
   const [teamInfo, setTeamInfo] = useState({})
 
@@ -20,24 +23,9 @@ const MyTeam = (props) => {
         console.log(resp.data.team)
         const team = resp.data.team
         getTeam(team)
-
+        console.log(resp.data)
       })
-    // .then((resp) => {
-
-    //   const team = accountData.team
-
-    //   axios.get(`/api/team/${team}`)
-    //     .then((resp) => {
-    //       const team = resp.data
-    //       setTeamInfo(team)
-    //     })
-
-    // })
   }, [])
-
-
-
-
 
   const getTeam = (team) => {
     axios.get(`/api/team/${team}`)
@@ -46,60 +34,40 @@ const MyTeam = (props) => {
         console.log(resp.data)
       })
 
+    axios.get(`https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=${team}`)
+      .then((resp) => {
+        const events = resp.data.events
+        console.log(events)
+        setTeamEvents(events)
+
+      })
+
+    axios.get(`https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=${team}`)
+      .then((resp) => {
+
+        const results = resp.data.results
+        console.log(results)
+        setTeamResults(results)
+
+      })
   }
-
-
-
-
-
-
-
-
-  // const [teamEvents, setTeamEvents] = useState([])
-
-  // useEffect(() => {
-  //   axios.get(`https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=133610`)
-  //     .then((resp) => {
-
-  //       const events = resp.data.events
-  //       console.log(events)
-
-
-  //       setTeamEvents(events)
-
-  //     })
-  // }, [teamId])
-
-
-
-
-  // const [teamResults, setTeamResults] = useState()
-
-  // useEffect(() => {
-  //   axios.get(`https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=133610`)
-  //     .then(resp => {
-  //       const results = resp.data.results
-  //       setTeamResults(results)
-
-  //     })
-  // }, [accountData.team])
-
 
 
   return <div className="container-results-fixtures">
 
-    <h1 className="username">{accountData.username}</h1>
+    <Fade>
+      <h1 className="username">{accountData.username}</h1>
 
-    <div className="myteaminfo">
-      <img className="myteamimg" src={teamInfo.image} />
-      <h1 className="myteamheader">Upcoming Fixtures</h1>
-    </div>
-
+      <div className="myteaminfo">
+        <img className="myteamimg" src={teamInfo.banner} />
+        <h1 className="myteamheader">Upcoming Fixtures</h1>
+      </div>
+    </Fade>
 
 
     <div className="resultsfixtures">
 
-      {/* {teamEvents.map((result, index) => {
+      {teamEvents.map((result, index) => {
 
         return <div key={index} className="card text-center">
           <img className="card-img-top" src={result.strThumb} alt="Card image cap" />
@@ -114,14 +82,14 @@ const MyTeam = (props) => {
           </div>
         </div>
 
-      })} */}
+      })}
 
 
       <div className="myteamprev">
         <h1 className="myteamprevheader text-center">Previous<br />Results</h1>
       </div>
 
-      {/* {teamResults.map((result, index) => {
+      {teamResults.map((result, index) => {
 
         return <div key={index} className="card text-center">
           <img className="card-img-top" src={result.strThumb} alt="Card image cap" />
@@ -135,7 +103,7 @@ const MyTeam = (props) => {
           </div>
         </div>
 
-      })} */}
+      })}
 
 
     </div>
