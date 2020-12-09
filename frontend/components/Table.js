@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { getUserId, isCreator } from '../lib/auth'
 
 import Fade from 'react-reveal/Fade'
-
-
 
 
 

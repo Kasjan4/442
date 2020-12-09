@@ -11,7 +11,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas, fab)
 
 
-const Players = (props) => {
+const Players = () => {
 
   const [currentPlayer, setCurrentPlayer] = useState({})
 
@@ -19,13 +19,25 @@ const Players = (props) => {
 
   const [dataReady, setDataReady] = useState(1)
 
+  const [errors, updateErrors] = useState('')
+
 
   useEffect(() => {
     axios.get(`/api/player/${searchTerm}`)
       .then((resp) => {
+   
         const player = resp.data
-        setCurrentPlayer(player)
-        console.log(player)
+
+        if (resp.data.message) {
+
+          const message = resp.data.message
+          console.log(message)
+          updateErrors(message)
+          
+        } else {
+          setCurrentPlayer(player)
+        }
+
       })
   }, [dataReady])
 
@@ -34,9 +46,8 @@ const Players = (props) => {
   function handleSubmit(event) {
 
     event.preventDefault()
-
+    updateErrors('')
     setDataReady(dataReady + 1)
-    console.log('sefsdf')
 
   }
 
@@ -57,11 +68,12 @@ const Players = (props) => {
 
           <button className="btn btn-dark" onClick={handleSubmit}>Find Player</button>
         </form>
+        {errors && <p className="error" >{errors}</p>}
       </Fade>
 
 
 
-      {currentPlayer && <div>
+      {currentPlayer.player_name && <div>
 
         <Fade appear spy={currentPlayer}>
           <img className="player-image" src={currentPlayer.image} />
@@ -69,8 +81,8 @@ const Players = (props) => {
 
         <Fade appear spy={currentPlayer}>
           <div className="player-desc">
-            <a href={`https://${currentPlayer.instagram}`} target="_blank" ><FontAwesomeIcon className="player-insta" icon={['fab', 'instagram']} /></a>
-            
+            <a href={`https://${currentPlayer.instagram}`} target="_blank" rel="noreferrer"><FontAwesomeIcon className="player-insta" icon={['fab', 'instagram']} /></a>
+
             <Link to={`/team/${currentPlayer.team_id}`} className="btn btn-dark btn-resfix btn-teams btn-player">View Club</Link>
             <h1 className="player-name">{currentPlayer.player_name}</h1><br />
             <p className="player-nat" >Nation: <strong>{currentPlayer.nationality}</strong></p><br /><p className="player-nat" >Club: <strong>{currentPlayer.team_name}</strong></p><br />

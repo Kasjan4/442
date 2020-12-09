@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Fade from 'react-reveal/Fade'
-import { Link } from 'react-router-dom'
 
 
 const Team = (props) => {
@@ -31,7 +30,7 @@ const Team = (props) => {
             <h1 className="year"><strong>Founded: {team.year}</strong></h1>
             <h5 className="card-desc text-center">Stadium: <strong>{team.stadium}, {team.country}</strong></h5>
             <h5 className="card-desc">{team.description}</h5>
-            <a href={`https://${team.website}`} target="_blank" className="card-website">TEAM WEBSITE</a>
+            <a href={`https://${team.website}`} target="_blank" rel="noreferrer" className="card-website">TEAM WEBSITE</a>
           </div>
 
         </div>

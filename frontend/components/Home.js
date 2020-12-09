@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import MapGL, { Marker, FlyToInterpolator } from 'react-map-gl'
 import { Link } from 'react-router-dom'
+import Fade from 'react-reveal/Fade'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowsAltV } from '@fortawesome/free-solid-svg-icons'
 
 
 const Home = () => {
 
+  const arrow = <FontAwesomeIcon icon={faArrowsAltV} size="1x" />
 
   const [leagues, setLeague] = useState([])
 
@@ -92,26 +96,28 @@ const Home = () => {
     {!leagues && <div>
     </div>}
 
-    <div className="container-news" >
+    <Fade>
+      {news && <div className="container-news" >
 
-      <h6 className="news-header" >Football News</h6>
+        <h6 className="news-header" >Headlines {arrow}</h6>
 
-      {news.map((article, index) => {
+        {news.map((article, index) => {
 
-        return <div key={index} className="article">
+          return <div key={index} className="article">
 
-          <img className="news-img" src={article.urlToImage} />
-          <a href={article.url} target="_blank" ><p className="news-title" >{article.title}</p></a>
-          
-
-
+            <img className="news-img" src={article.urlToImage} />
+            <a href={article.url} target="_blank" rel="noreferrer"><p className="news-title" >{article.title}</p></a>
 
 
-        </div>
 
-      })}
 
-    </div>
+
+          </div>
+
+        })}
+
+      </div>}
+    </Fade>
 
     {leagues && <MapGL
 

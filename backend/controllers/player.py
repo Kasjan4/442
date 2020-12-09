@@ -13,13 +13,13 @@ def get_single_player(name):
   player = requests.get(f'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?p={name}')
 
   if player.status_code != 200 :
-    return {'message': 'Player not available'}, 404
+    return {'message': 'Refine your search'}
   player = player.json().get('player')
   if not player:
-    return {'message': 'Player not available'}, 404
+    return {'message': 'Refine your search'}
   player = player[0]
   if not player:
-    return {'message': 'Player not available'}, 404
+    return {'message': 'Refine your search'}
   player_json = dict(
     player_name=player['strPlayer'],
     team_name=player['strTeam'],
