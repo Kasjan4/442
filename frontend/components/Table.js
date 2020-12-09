@@ -41,20 +41,20 @@ const Table = (props) => {
 
       {dataReady && <table>
         <tr className="table-top">
-          <th className="table-top-columns">Team</th>
-          <th className="table-top-columns">Played</th>
-          <th className="table-top-columns">Wins</th>
-          <th className="table-top-columns">Draws</th>
-          <th className="table-top-columns">Losses</th>
-          <th className="table-top-columns">Goals<br />For</th>
-          <th className="table-top-columns">Goals<br />Against</th>
-          <th className="table-top-columns">Goals<br />Difference</th>
-          <th className="table-top-columns"><strong>Points<br />Total</strong></th>
+          <th className="table-top-columns">Club</th>
+          <th className="table-top-columns">MP</th>
+          <th className="table-top-columns">W</th>
+          <th className="table-top-columns">D</th>
+          <th className="table-top-columns">L</th>
+          <th className="table-top-columns">GF</th>
+          <th className="table-top-columns">GA</th>
+          <th className="table-top-columns">GD</th>
+          <th className="table-top-columns"><strong>PTS</strong></th>
         </tr>
 
         {table.map((team, index) => {
-          return <tr key={index}>
-            <th><strong>{team.name}</strong></th>
+          return <tr className="last-table-item" key={index}>
+            <th><strong><Link to={`/team/${team.teamid}`}>{team.name}</Link></strong></th>
             <th>{team.played}</th>
             <th>{team.win}</th>
             <th>{team.draw}</th>

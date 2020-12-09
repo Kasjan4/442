@@ -53,7 +53,7 @@ const MyTeam = (props) => {
   }
 
 
-  return <div className="container-results-fixtures">
+  return <div className="container-my-team">
 
     <Fade>
       <h1 className="username">{accountData.username}</h1>

@@ -26,12 +26,10 @@ const Team = (props) => {
         <div className="card-league text-center">
           
           <img className="card-img-top team-img" src={team.image} alt="Card image cap" />
-          <div className="resfixbtn">
-          </div>
 
           <div className="card-body">
             <h1 className="year"><strong>Founded: {team.year}</strong></h1>
-            <h5 className="card-desc text-center"><strong>Stadium: {team.stadium}, {team.country}</strong></h5>
+            <h5 className="card-desc text-center">Stadium: <strong>{team.stadium}, {team.country}</strong></h5>
             <h5 className="card-desc">{team.description}</h5>
             <a href={`https://${team.website}`} target="_blank" className="card-website">TEAM WEBSITE</a>
           </div>

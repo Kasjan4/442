@@ -49,6 +49,7 @@ const League = (props) => {
           </div>
           <div className="card-body">
             <h1 className="year"><strong>Founded: {league.year}</strong></h1>
+            <h5 className="card-desc text-center">Country: <strong>{league.country}</strong></h5>
             <h5 className="card-desc">{league.description}</h5>
             <a href={`https://${league.website}`} target="_blank" className="card-website">LEAGUE WEBSITE</a>
 
@@ -63,7 +64,7 @@ const League = (props) => {
 
           return <div key={index} className="card text-center card-transparent">
             <img className="card-img-top-league-teams text-center" src={team.strTeamBadge} alt="Card image cap" />
-            <Link to={`/team/${team.idTeam}`} className="btn btn-dark btn-resfix btn-teams">View Team</Link>
+            <Link to={`/team/${team.idTeam}`} className="btn btn-dark btn-resfix btn-teams">View Club</Link>
           
           </div>
 

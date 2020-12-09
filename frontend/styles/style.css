@@ -226,7 +226,7 @@ form select {
 
 .loginques {
   color: white;
-  background-color: rgb(0, 128, 0, 0.8);
+  background-color: rgb(0, 128, 0, 0.6);
   padding: 0 1rem 0 1rem;
   margin-top: 2rem;
   border-radius: 1rem;
@@ -271,6 +271,7 @@ form select {
 
 .team-img {
   width: 12rem !important;
+
 }
 
 .resfixbtn {
@@ -303,7 +304,8 @@ form select {
 
 .username {
   color: rgb(224, 224, 224);
-  background-color: green;
+  background-color: rgb(0, 128, 0, 0.5);
+  padding: .5rem;
   text-align: center;
   width: 10rem;
   border-radius: 1rem;
@@ -347,6 +349,19 @@ form select {
   color: rgb(224, 224, 224);
 }
 
+.container-my-team {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* padding-left: 10px !important;
+  padding-right: 10px !important; */
+  background: black;
+  padding-bottom: 3rem;
+  width: 100vw;
+
+}
 
 
 
@@ -373,7 +388,7 @@ form select {
 
 .card-img-top {
   width: 100%;
-  height: 10rem;
+  /* height: 10rem; */
 }
 
 .card-img-top-league-teams {
@@ -423,8 +438,6 @@ form select {
 }
 
 .resultsfixtures {
-  /* position: relative; */
-  /* top: 5rem; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -504,33 +517,62 @@ form select {
 
 table {
   color: white;
-  background-color: rgb(2, 70, 2) !important;
-  border-radius: 1rem;
+  background-color: rgb(12, 134, 12)!important;
+  border-radius: 1rem!important;
 }
 
 
 table th {
-  padding: 1rem;
+  padding: .5rem 1.5rem .5rem 1.5rem;
   border-top: 1px solid rgb(0, 0, 0, 0.7);
   border-bottom: 1px solid rgb(0, 0, 0, 0.7);
-  background-color: green !important;
+  /* background-color: green !important; */
+}
+
+
+/* table tr:last-of-type {
+  border-radius: 0 0 1rem 1rem;
+}
+
+table th:last-of-type {
+  border-radius: 0 0 1rem 1rem;
+} */
+
+.last-table-item:last-of-type {
+  border-radius: 0 0 1rem 1rem;
+}
+
+table th a {
+  color: white;
+}
+
+table th a:hover {
+  color: white;
 }
 
 .table-top {
-  background-color: rgb(2, 70, 2) !important;
+  background-color: darkgreen !important;
   border-radius: 1rem !important;
 }
 
 .table-top-columns {
-  background-color: rgb(2, 70, 2) !important;
-  border-radius: 1rem !important;
+  background-color: darkgreen !important;
   text-transform: uppercase;
+  /* border-radius: 1rem 1rem 0 0; */
+}
+
+.table-top-columns:first-of-type {
+  border-radius: 1rem 0rem 0 0;
+}
+
+.table-top-columns:last-of-type {
+  border-radius: 0rem 1rem 0 0;
 }
 
 .tableheader {
   color: rgb(224, 224, 224);
   margin-top: 5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   width: 100%;
 }
 
@@ -563,7 +605,7 @@ table th {
   text-transform: uppercase;
   font-size: 2.2rem;
   padding: 0;
-  max-width: 80%;
+  max-width: 85%;
   overflow-x: scroll;
   max-height: 5rem;
 
