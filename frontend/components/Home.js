@@ -9,6 +9,8 @@ const Home = () => {
 
   const [leagues, setLeague] = useState([])
 
+  const [news, setNews] = useState([])
+
 
   const [viewPort, setViewPort] = useState({
     height: '100vh',
@@ -27,6 +29,17 @@ const Home = () => {
 
       })
   }, [])
+
+  useEffect(() => {
+    axios.get('https://newsapi.org/v2/top-headlines?sources=four-four-two&apiKey=00543dae82cc481dbc2c8832de8f1e34')
+      .then(resp => {
+        const articles = resp.data.articles
+        setNews(articles)
+        console.log(articles)
+
+      })
+  }, [])
+
 
   function goToNorthAmerica() {
     const NorthAmericaViewport = {
@@ -78,6 +91,27 @@ const Home = () => {
 
     {!leagues && <div>
     </div>}
+
+    <div className="container-news" >
+
+      <h6 className="news-header" >Football News</h6>
+
+      {news.map((article, index) => {
+
+        return <div key={index} className="article">
+
+          <img className="news-img" src={article.urlToImage} />
+          <a href={article.url} target="_blank" ><p className="news-title" >{article.title}</p></a>
+          
+
+
+
+
+        </div>
+
+      })}
+
+    </div>
 
     {leagues && <MapGL
 

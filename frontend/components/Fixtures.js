@@ -6,7 +6,6 @@ import Fade from 'react-reveal/Fade'
 const Results = (props) => {
 
   const id = props.match.params.id
-  // console.log(id)
   const [results, setResults] = useState([])
   const [dataReady, setDataReady] = useState()
 
