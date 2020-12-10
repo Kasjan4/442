@@ -1,3 +1,4 @@
-db_URI = 'postgres://localhost:5432/football_db'
+import os 
 
-secret = 'This is our secret string blah blah blah'
+db_URI = os.getenv('DATABASE_URL', 'postgres://localhost:5432/football_db')
+secret = os.getenv('SECRET', 'This is our secret string blah blah blah')

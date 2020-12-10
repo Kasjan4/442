@@ -7,10 +7,13 @@
     "backend": "nodemon backend/server.js",
     "seed": "node backend/seed.js",
     "frontend": "webpack-dev-server --mode=development --env.NODE_ENV=local",
-    "build": "webpack -p --env.NODE_ENV=production",
+    "buildwebpack": "webpack -p --env.NODE_ENV=production",
     "start": "node backend/server.js",
     "serve:frontend": "webpack-dev-server --mode=development",
-    "serve:backend": "pipenv run flask run"
+    "serve:backend": "pipenv run flask run",
+    "build": "pipenv install; npm i; webpack -p",
+    "serve:react": "webpack-dev-server",
+    "serve:flask": "pipenv run flask run"
   },
   "author": "",
   "license": "ISC",
