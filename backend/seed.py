@@ -4,6 +4,7 @@ from app import app, db
 from models.user import User
 from models.team import Team
 from models.league import League
+from models.news import News
 from tqdm import tqdm
 import requests
 
@@ -13,8 +14,26 @@ with app.app_context():
 
     db.create_all()
 
+    
+    news_articles = requests.get('https://newsapi.org/v2/top-headlines?sources=four-four-two&apiKey=00543dae82cc481dbc2c8832de8f1e34').json()
+    news_articles_array = news_articles['articles']
+    news_object_list = []
+    print(news_articles_array)
+
+
+    for article in tqdm(news_articles_array):
+      
+      article_object = News(
+      title=article['title'],
+      image=article['urlToImage'],
+      url=article['url']
+      )
+      
+      news_object_list.append(article_object)
+    
+
     league_list = requests.get('https://www.thesportsdb.com/api/v1/json/1/all_leagues.php').json()
-    league_object_list =[]
+    league_object_list = []
     countries = {}
     existing_team_ids = set()
     print("starting ...")
@@ -65,6 +84,7 @@ with app.app_context():
             league_object_list.append(team_object)
         
 
+
     print('Leagues created')
     print('Adding to database:')
 
@@ -75,7 +95,7 @@ with app.app_context():
         team="133616",
         league="4332"
     )
-    db.session.add_all(league_object_list + [admin])
+    db.session.add_all(league_object_list + [admin] + news_object_list)
     db.session.commit()
 
 

@@ -35,9 +35,9 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    axios.get('https://newsapi.org/v2/top-headlines?sources=four-four-two&apiKey=00543dae82cc481dbc2c8832de8f1e34')
+    axios.get('/api/news')
       .then(resp => {
-        const articles = resp.data.articles
+        const articles = resp.data
         setNews(articles)
         console.log(articles)
 
@@ -105,11 +105,8 @@ const Home = () => {
 
           return <div key={index} className="article">
 
-            <img className="news-img" src={article.urlToImage} />
+            <img className="news-img" src={article.image} />
             <a href={article.url} target="_blank" rel="noreferrer"><p className="news-title" >{article.title}</p></a>
-
-
-
 
 
           </div>
