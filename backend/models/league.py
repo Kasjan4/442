@@ -1,9 +1,8 @@
 from app import db
 from models.base import BaseModel
-# from models.hotel_note import hotels_notes_join
-# from models.user import User
+
 from models.team import Team
-# from models.note import Note
+
 
 class League(db.Model, BaseModel):
 
