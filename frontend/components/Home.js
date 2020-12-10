@@ -38,11 +38,14 @@ const Home = () => {
     axios.get('/api/news')
       .then(resp => {
         const articles = resp.data
+        console.log(resp)
         setNews(articles)
-        console.log(articles)
+
 
       })
   }, [])
+
+
 
 
   function goToNorthAmerica() {
