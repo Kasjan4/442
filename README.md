@@ -562,7 +562,7 @@ db.session.commit()
 
 ## Artworks
 
-Background
+Backgrounds
 
 - pixabay.com
 - imgur.com
@@ -575,5 +575,3 @@ Icons
 
 - Kasjan Hinc
 - Omar Alawi
-
-
