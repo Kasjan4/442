@@ -38,7 +38,7 @@ const Navbar = (props) => {
       .then((resp) => {
         const teams = resp.data
 
-        let finalSearchData = [...searchData]
+        const finalSearchData = [...searchData]
 
         for (let i = 0; i < teams.length; i++) {
 

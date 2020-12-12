@@ -7,8 +7,6 @@ import Fade from 'react-reveal/Fade'
 
 
 
-
-
 const League = (props) => {
 
   const id = props.match.params.id
