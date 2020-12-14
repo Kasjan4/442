@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
 /* UNIVERSAL */
 
 #root {
@@ -115,10 +117,11 @@ body {
 
 
 
-.map-menu {
-  position: relative;
-  top: 100px;
-  left: 100px;
+.title {
+  color: white;
+  font-size: 2rem;
+  margin-left: 1rem;
+  font-family: 'Bungee', cursive;
 }
 
 
@@ -467,7 +470,7 @@ form select {
   position: relative;
   display: inline;
   top: 19px;
-  left: 100px;
+  left: 200px;
   z-index: 999;
   padding: 0;
   margin: 0;

@@ -65,6 +65,8 @@ const Navbar = (props) => {
 
     <Bounce top><div className="ball">{football}</div></Bounce>
 
+    <h1 className="title">442</h1>
+
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span className="navbar-toggler-icon"></span>
     </button>
