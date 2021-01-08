@@ -566,7 +566,7 @@ db.session.commit()
 ## Bugs (Fixed)
 
 - Fixed the news articles, as our external news API only allowed requests from localhost.
-- Fixed player each error handling
+- Fixed player each error handling.
 
 ## Potential Future Features
 
@@ -576,12 +576,12 @@ db.session.commit()
 
 Background
 
-- pixabay.com, open source license
-- imgur.com, for personal hosting
+- pixabay.com, open source license.
+- imgur.com, for personal hosting.
 
 Icons
 
-- Font Awesome
+- Font Awesome.
 
 ## Contributors
 
