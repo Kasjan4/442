@@ -1,15 +1,15 @@
-# Football Map
+# 442
 
 ## Overview
 
-My fourth and final project of the Software Engeneering Immersive bootcamp in General Assembly. As a pair we built a full stack website, using React, Flask and PostgreSQL. Using GitHub and Git to collaborate, we were building on our skills to combine our JavaScript and Python knowledge.
+My fourth and final project of the Software Engineering Immersive bootcamp in General Assembly. As a pair we built a full stack website, using React, Flask and PostgreSQL. Using GitHub and Git to collaborate, we were building on our skills to combine our JavaScript and Python knowledge.
 
 [CHECK IT OUT HERE](https://football-map.herokuapp.com/)
 
 ## Brief
 
 - Create a full stack website.
-- The webiste had to give functionality to the user, with a login/register page and to implement an API to reveal information.
+- The website had to give functionality to the user, with a login/register page and to implement an API to reveal information.
 - Our site was to be deployed using Heroku and the PostgreSQL extension.
 - Give the project meaning, as if the user would actually find the experience useful.
 - Use a framework for responsiveness.
@@ -37,13 +37,15 @@ My fourth and final project of the Software Engeneering Immersive bootcamp in Ge
 - React Hooks
 - Font Awesome
 - React Reveal
-- External footbal API, geolocation API and news API.
+- External football API: thesportsdb.com
+- Geolocation API: api.opencagedata.com
+- News API: newsapi.org
 
 ## Approach
 
 We decided to construct a football website where the football leagues were displayed using React native maps. We decided to gather information such as fixtures, results, live table standings, news, and players.
 
-I was responsible mainly for the React front end, using our Flask endpoints to render our databse. Also, I helped out with the controller and schema logic.
+I was responsible mainly for the React front end, using our Flask endpoints to render our database visually. Also, I helped out with the controller and schema logic.
 
 For our React frontend, we implemented bootstrap as our css framework, giving us good efficiency when creating the interface.
 
@@ -213,7 +215,7 @@ useEffect(() => {
 
 ## League / Team Pages
 
-- Here we have a league or teams basic information. For a league page, the teams that belong to that league are also mapped out in the form of Bootstrap cards. The Fade animation from React Reveal spies on the league/team id, so that when the data is transferred into state from axios the page will animate only then, resuting in a smooth transition.
+- Here we have a league or teams basic information. For a league page, the teams that belong to that league are also mapped out in the form of Bootstrap cards. The Fade animation from React Reveal spies on the league/team id, so that when the data is transferred into state from axios the page will animate only then, resulting in a smooth transition.
 
 ![Football Map](./screenshots/league.png)
 
@@ -271,7 +273,7 @@ useEffect(() => {
     </Fade>
 ```
 
-- The backend schema model for a league, it exntends from the BaseModel, which has also an id and createdAt and updatedAt fields. A relationship is made with a team which belongs to a given league.
+- The backend schema model for a league, it extends from the BaseModel, which has also an id and createdAt and updatedAt fields. A relationship is made with a team which belongs to a given league.
 
 ```py
 from app import db
@@ -368,7 +370,7 @@ def get_single_player(name):
 
 ## JSON Web Token
 
-A token stored in localstorage is used to determine the users id. The id of the user helps with displaying the users favourite team information in the My Team page.
+A token stored in local storage is used to determine the users id. The id of the user helps with displaying the users favourite team information in the My Team page.
 
 - Here the getUserId function is exported from our lib folder to be used in authentication where needed. The token is parsed to get a unique string which represents the user. Then the id of the user is given back as parsedToken.sub.
 
@@ -384,7 +386,7 @@ export function getUserId() {
 }
 ```
 
-- The My Team link is checking for a token in the localstorage and using the parsed.sub id to create a link to the current users page.
+- The My Team link is checking for a token in the local storage and using the parsed.sub id to create a link to the current users page.
 
 ```js
 {
@@ -402,7 +404,7 @@ The users favourite team results and fixtures are shown. As well a a team banner
 ![Football Map](./screenshots/myteam.png)
 
 
-- Here is axios fetching our current user from our Flask endpoint. The account data state is updated and the getTeam function is triggered so that another fetch can retrive the users team based on the team value in his/hers account data.
+- Here is axios fetching our current user from our Flask endpoint. The account data state is updated and the getTeam function is triggered so that another fetch can retrieve the users team based on the team value in his/hers account data.
 
 ```js
   const [accountData, updateAccountData] = useState({})
@@ -484,7 +486,7 @@ const getTeam = (team) => {
 
 ## Seeded Data
 
-The seed file we used to populate our API, with all the leagues and teams fetched from our external football API. A for loop is used to create a Python dictionary for each league and team, with an if statement which filters out the non football leagues. For each dictionary, geolocation in the form of lattitude and longtitude are added for the purpose of the home map.
+The seed file we used to populate our API, with all the leagues and teams fetched from our external football API. A for loop is used to create a Python dictionary for each league and team, with an if statement which filters out the non football leagues. For each dictionary, geolocation in the form of latitude and longitude are added for the purpose of the home map.
 
 ```js 
    league_list = requests.get('https://www.thesportsdb.com/api/v1/json/1/all_leagues.php').json()
@@ -551,21 +553,31 @@ db.session.add_all(league_object_list + [admin])
 db.session.commit()
 ```
 
+## Wins
+
+- Gained a deeper understanding of using Python in Flask alongside JavaScript when creating a full stack project.
+- Teamwork and breaking down tasks became more natural as this was our fourth bootcamp project.
+
+## Challenges
+
+- Working with relations between SQL tables.
+- Overcoming API's that didn't have the endpoints we needed or didn't have all the information.
+
 ## Bugs (Fixed)
 
 - Fixed the news articles, as our external news API only allowed requests from localhost.
-- Fixed player earch error handling
+- Fixed player each error handling
 
-## Potential future features
+## Potential Future Features
 
 - Add a direct messaging inbox between users.
 
 ## Artworks
 
-Backgrounds
+Background
 
-- pixabay.com
-- imgur.com
+- pixabay.com, open source license
+- imgur.com, for personal hosting
 
 Icons
 
