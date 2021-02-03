@@ -6,6 +6,8 @@ My fourth and final project of the Software Engineering Immersive bootcamp in Ge
 
 [CHECK IT OUT HERE](https://football-map.herokuapp.com/)
 
+![442](./screenshots/home.png)
+
 ## Brief
 
 - Create a full stack website.
@@ -60,7 +62,7 @@ After searching many external football API's, we settled on thesportsdb.com as i
 
 Using React native maps, the seeded leagues were plotted on a world map, with the league badge working as a marker.
 
-![Football Map](./screenshots/home.png)
+![442](./screenshots/home.png)
 
 - A snippet of our map. We used a custom mapStyle and transitionInterpolator to give a clean theme to the page and to give a flying in effect when different regions are toggled.
 
@@ -92,7 +94,7 @@ Using React native maps, the seeded leagues were plotted on a world map, with th
 
 The navbar includes React links to other pages, as well as a search bar which allows the user to find a league or team in our database. The navbar is rendered on each page in our website.
 
-![Football Map](./screenshots/navbar.png)
+![442](./screenshots/navbar.png)
 
 
 - A fetch for our teams, then the data is placed into the searchData object using .concat(). 
@@ -157,13 +159,13 @@ The navbar includes React links to other pages, as well as a search bar which al
         </Fade>
 ```
 
-![Football Map](./screenshots/search.png)
+![442](./screenshots/search.png)
 
 ## Registration
 
 Using React Reveal, the user is able to view their current favourite team choice in real time, as the select field triggers a new axios fetch of the league and teams badge.
 
-![Football Map](./screenshots/reg.png)
+![442](./screenshots/reg.png)
 
 - Leagues object from which the select input gets its data.
 
@@ -219,7 +221,7 @@ useEffect(() => {
 
 - Here we have a league or teams basic information. For a league page, the teams that belong to that league are also mapped out in the form of Bootstrap cards. The Fade animation from React Reveal spies on the league/team id, so that when the data is transferred into state from axios the page will animate only then, resulting in a smooth transition.
 
-![Football Map](./screenshots/league.png)
+![442](./screenshots/league.png)
 
 ```js 
 <Fade appear spy={id}>
@@ -302,7 +304,7 @@ class League(db.Model, BaseModel):
 
 - Similar to the navbar search, however the searching is done from the external football API based on an endpoint which allows you to get a player by his name. We originally planned on seeding the players to our PostgreSQL, however no football API offers this currently on a free plan.
 
-![Football Map](./screenshots/player.png)
+![442](./screenshots/player.png)
 
 ```js
  const [currentPlayer, setCurrentPlayer] = useState({})
@@ -403,7 +405,7 @@ export function getUserId() {
 
 The users favourite team results and fixtures are shown. As well a a team banner.
 
-![Football Map](./screenshots/myteam.png)
+![442](./screenshots/myteam.png)
 
 
 - Here is axios fetching our current user from our Flask endpoint. The account data state is updated and the getTeam function is triggered so that another fetch can retrieve the users team based on the team value in his/hers account data.
