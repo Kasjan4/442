@@ -45,6 +45,8 @@ My fourth and final project of the Software Engineering Immersive bootcamp in Ge
 
 We decided to construct a football website where the football leagues were displayed using React native maps. We decided to gather information such as fixtures, results, live table standings, news, and players.
 
+We first planned out our design using wireframes and mapped out how our data was to be stored in our SQL database, taking into account the neccessary tables and their relationships.
+
 I was responsible mainly for the React front end, using our Flask endpoints to render our database visually. Also, I helped out with the controller and schema logic.
 
 For our React frontend, we implemented bootstrap as our css framework, giving us good efficiency when creating the interface.
