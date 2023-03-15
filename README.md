@@ -586,8 +586,3 @@ Background
 Icons
 
 - Font Awesome.
-
-## Contributors
-
-- Kasjan Hinc
-- Omar Alawi
